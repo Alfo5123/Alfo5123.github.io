@@ -1,0 +1,88 @@
+# -----------------------------------------------------------------------------
+# Site settings
+# -----------------------------------------------------------------------------
+name: Alfredo - De la Fuente
+email: alfredo.delafuente.b@gmail.com
+description: > # this means to ignore newlines until "url:"
+  Personal website based on [*folio](https://github.com/bogoli/-folio) design.
+footer_text: > #
+
+url: #"http://Alfo5123.github.io"
+baseurl: #/al-folio # the subpath of your site, e.g. /blog/
+last_updated: # leave blank if you don't want to display last updated
+
+# -----------------------------------------------------------------------------
+# Social integration
+# -----------------------------------------------------------------------------
+github_username: Alfo5123
+twitter_username: alfo_512
+linkedin_username: alfredodelafuenteb
+scholar_authorid: # put your google scholar author id
+contact_note: >
+  Feel free to drop me a line at alfredo.delafuente.b {at} gmail. com
+
+google_analytics: UA-XXXXXXXXX # out your google-analytics code
+
+# -----------------------------------------------------------------------------
+# Blog
+# -----------------------------------------------------------------------------
+blog_name: Plato's Cave Allegory
+blog_description: Random thoughts
+
+# Pagination
+paginate: 4
+permalink: /blog/:year/:title/
+paginate_path: /blog/page:num/
+
+text:
+  pagination:
+    newer: 'Newer'
+    older: 'Older'
+
+# Comments
+disqus_shortname: # put your disqus shortname
+
+# Optional features
+show_social_icons:  false
+enable_anchorjs:    false
+enable_katex:       true
+
+# -----------------------------------------------------------------------------
+# Collections
+# -----------------------------------------------------------------------------
+collections:
+  news:
+    defaults:
+      layout: post
+    output: true
+    permalink: /news/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+news_limit: 7
+
+# -----------------------------------------------------------------------------
+# Jekyll settings
+# -----------------------------------------------------------------------------
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Includes
+include: ['_pages']
+
+# Gems
+gems:
+    - jekyll-email-protect
+    - jekyll-paginate
+    - jemoji
+
+
+# -----------------------------------------------------------------------------
+# Other settings
+# -----------------------------------------------------------------------------
+jquery_version: "1.12.4"
+katex_version: "0.9.0"
+anchorjs_version: "3.2.2"
