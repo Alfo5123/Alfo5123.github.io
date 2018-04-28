@@ -393,7 +393,9 @@ footer a:hover { color: #009f06; }
 .project .thumbnail a:hover span { display: block; }
 
 .profile { float: right !important; }
-.profile img { box-shadow: 0 0 5px #828282; width: 100%; }
+.profile img { box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); margin: 0 20px 0; width: 120%; }
+
+.text-justify { text-align: justify; }
 
 .address { font-family: monospace; }
 .address p { margin: 0; }
@@ -450,7 +452,7 @@ footer a:hover { color: #009f06; }
 
 blockquote { border-left: 5px solid #7a7a7a; font-style: italic; margin-left: 0.5rem; padding: 0.5rem; }
 
-blockquote2 { font-style: italic; padding: 5px 5px 5px 5px; }
+blockquote2 { font-style: italic; padding: 2px 2px 2px 2px; }
 
 blockquote footer { background-color: #fff; border-color: transparent; color: #7a7a7a; font-size: .85rem; font-style: normal; text-align: left; padding: 0; }
 

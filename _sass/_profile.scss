@@ -1,10 +1,17 @@
 .profile {
     float: right !important;
     img {
-        box-shadow: 0 0 5px $grey-color;
-        width: 100%;
+        box-shadow: 0 0 5px $darken-4;
+	margin: 0 20px 0;
+        width: 120%;
     }
 }
+
+.text-justify {
+  text-align: justify;
+}
+
+
 .address {
     font-family: monospace;
 
