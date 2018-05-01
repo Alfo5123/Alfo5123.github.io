@@ -3,6 +3,7 @@ layout: page
 title: Projects
 permalink: /projects/
 description: A growing collection of your previous and current projects.
+order: 4
 ---
 
 {% for project in site.projects %}

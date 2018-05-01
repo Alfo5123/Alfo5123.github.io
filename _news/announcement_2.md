@@ -1,7 +1,7 @@
 ---
 layout: post
-title: A long announcement with details
-date: 2015-11-07 16:11:00-0400
+title: Met Stephen Wolfram
+date: 2017-07-15 16:11:00-0400
 inline: false
 ---
 

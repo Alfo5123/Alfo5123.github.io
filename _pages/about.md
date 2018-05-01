@@ -2,6 +2,7 @@
 layout: about
 permalink: /
 title: <strong>Alfredo</strong> De la Fuente
+order: 1
 description: Researcher, passionate learner, thinker. <br/> <blockquote2 class="warning" id="mymotto" title="Motto"><h5> 'Nothing is built on stone, all is built on sand; but we must build as if the sand were stone.' <br/> – Jorge Luis Borges</h5></blockquote2> 
 
 profile:

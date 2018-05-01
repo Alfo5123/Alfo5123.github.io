@@ -24,15 +24,15 @@ contact_note: >
 google_analytics: UA-XXXXXXXXX # out your google-analytics code
 
 # -----------------------------------------------------------------------------
-# Blog
+# Articles
 # -----------------------------------------------------------------------------
 blog_name: Plato's Cave
 blog_description: Random thoughts
 
 # Pagination
 paginate: 4
-permalink: /blog/:year/:title/
-paginate_path: /blog/page:num/
+permalink: /articles/:year/:title/
+paginate_path: /articles/page:num/
 
 text:
   pagination:
