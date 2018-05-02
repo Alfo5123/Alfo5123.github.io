@@ -23,6 +23,13 @@ contact_note: >
 
 google_analytics: UA-XXXXXXXXX # out your google-analytics code
 
+# Tags
+tag_dir: tag
+
+# Edit SASS
+sass:
+    sass_dir: _sass
+
 # -----------------------------------------------------------------------------
 # Articles
 # -----------------------------------------------------------------------------

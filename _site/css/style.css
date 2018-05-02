@@ -1,0 +1,33 @@
+.list { display: -webkit-flex; display: flex; -webkit-flex-flow: row wrap; flex-flow: row wrap; }
+
+.item:nth-child(12n+1) { background-color: #b9e8fd; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+2) { background-color: #fbb4a2; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+3) { background-color: #ffe06b; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+4) { background-color: #afe6ce; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+5) { background-color: #dabdd4; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+6) { background-color: #97f250; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+7) { background-color: #56c7fa; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+8) { background-color: #f76540; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+9) { background-color: #ffcb05; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+10) { background-color: #62cd9f; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+11) { background-color: #b67baa; border-radius: 3px; margin: 5px; }
+
+.item:nth-child(12n+12) { background-color: #62cd0f; border-radius: 3px; margin: 5px; }
+
+.item { -webkit-flex: 1 auto; flex: 1 auto; padding: 0.8rem; text-align: center; transition: all 300ms ease-in-out; }
+
+.item a { display: block; font-size: 1.2em; text-decoration: none; padding: 0.5rem 1rem; border-radius: 3px; color: #000; }
+
+.item a:hover { text-decoration: none; }
+
+.item:hover { background-color: #fff; }

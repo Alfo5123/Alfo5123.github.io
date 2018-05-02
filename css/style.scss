@@ -1,0 +1,50 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+.list {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+
+
+$chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa,#62cd0f;
+@for $i from 1 through length($chartColors) {
+  $chartColors: append($chartColors, darken(nth($chartColors, $i), 20));
+}
+
+@for $i from 1 through length($chartColors) {
+	.item:nth-child(#{length($chartColors)}n+#{$i}) {
+		background-color: lighten(nth($chartColors, $i), 20%);
+  		border-radius: 3px;
+                margin: 5px;
+	}
+}
+
+.item {
+  -webkit-flex: 1 auto;
+  flex: 1 auto;
+  padding: 0.8rem;
+  text-align: center;
+  transition: all 300ms ease-in-out;
+}
+
+.item a {
+  display: block;
+  font-size: 1.2em;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  color: #000;
+}
+
+.item a:hover {
+  text-decoration: none;
+}
+
+.item:hover{
+  background-color: #fff;
+}
+
