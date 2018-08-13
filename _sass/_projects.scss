@@ -1,22 +1,18 @@
 .project {
-    box-sizing: border-box;
-    float: left;
-    height: 250px;
-    padding: 10px;
-    vertical-align: middle;
-    width: 33.33%;
+    
+    display: grid;
+    grid-gap: 10px; 
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 
     .thumbnail {
         overflow: hidden;
-        height: 200px;
+	height: 200px;
         width: 100%;
 
         img {
-            height: auto;
-            position: relative;
-                left: -25%;
-                top: -5%;
-            width: 500px;
+            height: 100%;
+            width: 100%;
+	    object-fit: cover;
         }
 
         a {
