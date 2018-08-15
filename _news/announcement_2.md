@@ -5,7 +5,7 @@ date: 2017-07-15 16:11:00-0400
 inline: false
 ---
 
-Announcements and news can be much longer than just quick inline posts. In fact, they can have all the features available for the standard blog posts. See below.
+Let me briefly share my first impressions after meeting Stephen Wolfram while working as a research programmer at Wolfram Research in Lima, Peru. 
 
 ***
 
@@ -13,7 +13,9 @@ Announcements and news can be much longer than just quick inline posts. In fact,
 > —Stephen Wolfram
 
 
-Jean shorts raw denim Vice normcore, art party High Life PBR skateboard stumptown vinyl kitsch. Four loko meh 8-bit, tousled banh mi tilde forage Schlitz dreamcatcher twee 3 wolf moon. Chambray asymmetrical paleo salvia, sartorial umami four loko master cleanse drinking vinegar brunch. <a href="https://www.pinterest.com" target="blank">Pinterest</a> DIY authentic Schlitz, hoodie Intelligentsia butcher trust fund brunch shabby chic Kickstarter forage flexitarian. Direct trade <a href="https://www.ted.com/talks/stephen_wolfram_computing_a_theory_of_everything/transcript?language=en" target="blank">famous TED talk</a> meggings stumptown plaid, pop-up taxidermy. Hoodie XOXO fingerstache scenester Echo Park. Plaid ugh Wes Anderson, freegan pug selvage fanny pack leggings pickled food truck DIY irony Banksy.
+Perhaps in many of the other computational universes the classical "never meet your heroes" would have fitted perfectly, yet this was an  interesting exception. Around 2005, I was naively  introduced to [Wolfram Alpha](http://www.wolframalpha.com/) as an intuitive tool to efficiently ace cumbersome math calculations at school. Although it remained as that for a couple of years, later I started to get intersted on how those calculations were computed so fast and precisely, from an algorithmic point of view. To my surprise, this happened to be a result of several decades of effort based on the idea of using simple principles to compute complex systems: eventually I was fully engaged in a New Kind of Science. 
+
+Stepheh Wolfram, who you perhaps may know from his  <a href="https://www.ted.com/talks/stephen_wolfram_computing_a_theory_of_everything/transcript?language=en" target="blank">famous TED talk</a> is the genius mind behind it. Hoodie XOXO fingerstache scenester Echo Park. Plaid ugh Wes Anderson, freegan pug selvage fanny pack leggings pickled food truck DIY irony Banksy.
 
 #### Hipster list
 <ul>
