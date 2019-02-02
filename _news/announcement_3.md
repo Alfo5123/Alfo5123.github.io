@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2017-02-01 07:59:00-0400
+date: 2018-06-15 07:59:00-0400
 inline: true
 ---
 
-Begin working as Researcher Programmer in Wolfram Research.
+Succesfully finished first year of master program ([Interview](https://www.hse.ru/en/news/edu/221218004.html)) 

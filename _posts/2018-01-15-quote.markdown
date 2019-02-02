@@ -1,0 +1,9 @@
+---
+layout: post
+quote: 'For an easier life, allow a bit of irrationality: smooth objective, faster convergence.'
+date: 2018-01-15 21:01:00
+author: Yurii Nesterov
+categories: idea
+tags: quotes
+hidden: true
+---
