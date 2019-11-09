@@ -1,0 +1,9 @@
+---
+layout: post
+quote: "O my soul, do not aspire to immortal life, but exhaust the limits of the possible."
+date: 2019-11-08 18:01:00
+author: Pindar
+categories: idea
+tags: quotes
+hidden: true
+---
