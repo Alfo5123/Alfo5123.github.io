@@ -37,7 +37,7 @@ blog_name: Plato's Cave
 blog_description: Random thoughts
 
 # Pagination
-paginate: 4
+paginate: 5
 permalink: /articles/:year/:title/
 paginate_path: /articles/page:num/
 

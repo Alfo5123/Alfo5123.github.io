@@ -1,0 +1,48 @@
+---
+layout: post
+title: Met Stephen Wolfram
+date: 2017-07-15 16:11:00-0400
+description: Lessons from a genius mind
+inline: false
+categories: article
+comments: true
+---
+
+Let me briefly share my first impressions after meeting [Stephen Wolfram](https://en.wikipedia.org/wiki/Stephen_Wolfram) while working as a research programmer at Wolfram Research in Lima, Peru. Perhaps in many of the other computational universes, the classic "never meet your heroes" warning would have fitted perfectly, yet this was a worth telling exception. 
+{: .text-justify}
+
+
+> It's always seemed like a big mystery how nature, seemingly so effortlessly, manages to produce so much that seems to us so complex. Well, I think we found its secret. It's just sampling what's out there in the computational universe.
+> —Stephen Wolfram
+{: .text-justify}
+
+My first contact with Wolfram Company was around 2010, when I was naively  introduced to [Wolfram Alpha](http://www.wolframalpha.com/) as an intuitive tool to efficiently ace cumbersome math calculations at university. Truth be told, I did not pay much attention to the efforts needed to put this website together. It was only a few years later, when my eager to learn about algorithms kicked off, that I became interested in how the system could understand human queries and compute calculations so fast; suddenly I was immersed in Mathematica, complex systems and rules.
+{: .text-justify}
+
+In an odd twist of events, after my Bachelor graduation and a subsequent revealing period, I got the opportunity to join the [Wolfram Research Team](http://www.wolfram.com/) in Lima, Peru from February, 2017. Despite the lack of a formal background in Computer Science and no previous work experience, the Team decided to believe in me. And there I was, learning as much as I could from highly skilled mathematicians, physicists and engineers. I have to confess I am deeply thankful for the trust they deposited in me. I can safely say it was certainly a life changing experience. 
+{: .text-justify}
+
+Stephen Wolfram, who you perhaps may recognize from his  <a href="https://www.ted.com/talks/stephen_wolfram_computing_a_theory_of_everything/transcript?language=en" target="blank">famous TED talk</a> is the ambitious mind behind the company. It's unavoidable to hear some astonishing facts around your boss, specially when you know he published scientific papers on particle physics at the age of 15 and defended his PhD at 20, with Richard Feynman(!) on the thesis committee. Thus, it was a big surprise for our office, when he announced his trip to Peru to attend a conference and meet each member of the team personally. 
+{: .text-justify}
+
+<div class="img_row center">
+    <img src="{{ site.baseurl }}/assets/img/stephen_wolfram.png">
+</div>
+<div class="col three caption">
+    Stephen showing off. 
+</div>
+
+Once Michelangelo said <i>'genius is eternal patience'</i>; this phrase never made more sense to me that after just a few minutes of talking to Stephen Wolfram. I realized that his complete dedication to every aspect of the company, was not a mere workaholism expression, but a continuous passion for improving the system he devoted to built for several decades in order to make science more accessible. I must admit that it was very hard for me to keep up with his brainstorming speed and to follow closely the depth of his ideas, but the brief encounter taught me many things. I realized how little I know, how much responsibility is required to run your company, and how one of the brightest minds of our times looks like (yet his eating habits are highly questionable).
+{: .text-justify}
+
+
+#### Lessons learned
+<ul>
+    <li>Apply to the companies that share your core beliefs, regardless of your background.</li>
+    <li>Value multidisciplinary environments and be brave to explore different directions.</li>
+    <li>Stay humble (always!) and constantly assess your own ignorance.</li>
+    <li>Embrace the importance of revolutionary as well as evolutionary improvements.</li>
+</ul>
+
+***
+

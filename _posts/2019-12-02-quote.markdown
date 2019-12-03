@@ -1,0 +1,9 @@
+---
+layout: post
+quote: "Happiness should always remain a bit incomplete. After all, dreams are boundless."
+date: 2019-11-08 18:01:00
+author: Anatoly Karpov
+categories: idea
+tags: quotes
+hidden: true
+---
