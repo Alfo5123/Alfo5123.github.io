@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
-name: Alfredo - De la Fuente
+title: Alfredo - De la Fuente
 email: alfredo.delafuente.b@gmail.com
 description: > # this means to ignore newlines until "url:"
   Personal website.
@@ -81,7 +81,7 @@ highlighter: rouge
 include: ['_pages']
 
 # Gems
-gems:
+plugins:
     - jekyll-email-protect
     - jekyll-paginate
     - jemoji
