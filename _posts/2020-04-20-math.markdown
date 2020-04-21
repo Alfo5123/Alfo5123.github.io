@@ -21,8 +21,7 @@ $$ \displaystyle \sum_{k=0}^{n}\dbinom{n-k}{k} = F_{n+1} $$.
 where $$ F_{n+1}$$ corresponds to the $$(n+1)^{th}$$ term of the [Fibonacci sequence](http://oeis.org/A000045), and the combinatorial number $$ \displaystyle \dbinom{n}{k} = \frac{n!}{k!(n-k)!} $$ is assumed to be zero for $$ n < k $$.
 {: .text-justify}
 
-
-### Proof
+#### Proof
 
 We prove the identity using strong induction. For the base case, we trivially verify $$\binom{0}{0} = F_1 = 1$$. 
 
@@ -47,3 +46,28 @@ $$ \displaystyle \sum_{k=0}^{n+1}\dbinom{n+1-k}{k} = \dbinom{n}{0} + \left( \dbi
 $$ \displaystyle \sum_{k=0}^{n+1}\dbinom{n+1-k}{k} = F_{n+1} + F_{n} = F_{n+2} $$.
 
 Therefore, we proved the identity holds for all integers $$ n \geq 0 $$. ∎
+
+#### Derivation
+Although the identity was proved, the avid reader must be wondering how the formula was obtained in first place. To derive the formula we will use one of the most powerful weapon in combinatorics: generating functions. 
+{: .text-justify}
+
+Let us consider the following ordinary generating function, 
+
+$$ \displaystyle F(x) = \sum_{n \geq  0} \Big \lbrace \sum_{k=0}^{n}\dbinom{n-k}{k} \Big \rbrace x^n $$.
+{: style="font-size: 100%; text-align: center;"}
+
+where the coefficient of $$x^n$$ in the expansion of $$F(x)$$ corresponds to the quantitiy of interest. 
+
+$$ \displaystyle F(x) = \sum_{n \geq  0} \Big \lbrace \sum_{k=0}^{n}\dbinom{n-k}{k} \Big \rbrace x^n $$.
+
+$$ \displaystyle F(x) = \sum_{k \geq  0} \Big \lbrace   \sum_{n \geq  0}  \dbinom{n}{k}  x^{n+k}  \Big \rbrace $$.
+
+$$ \displaystyle F(x) = \sum_{n \geq  0}  \Big \lbrace   \sum_{k \geq  0}   \dbinom{n}{k}  x^{k}   \Big \rbrace  x^n $$.
+
+$$ \displaystyle F(x) = \sum_{n \geq  0}  \Big \lbrace   \sum_{k = 0}^{n}   \dbinom{n}{k}  x^{k}   \Big \rbrace  x^n $$.
+
+$$ \displaystyle F(x) = \sum_{n \geq  0}  (1-x)^n  x^n  = \sum_{n \geq  0}  \left( (1-x) x \right)^n  $$.
+
+$$ \displaystyle F(x) = \frac{1}{1-(1-x)x} = \frac{1}{1-x-x^2}$$.
+
+We recognize the last expression as the generating function of the $$F_{n+1}$$ Fibonacci term. ∎

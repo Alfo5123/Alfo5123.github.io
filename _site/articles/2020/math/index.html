@@ -111,7 +111,7 @@
     <p class="post-meta"> Reading Time ~ 
   
   
-    1 min
+    2 mins
   
 
 
@@ -128,13 +128,13 @@
 <p class="text-justify">where <script type="math/tex">F_{n+1}</script> corresponds to the <script type="math/tex">(n+1)^{th}</script> term of the <a href="http://oeis.org/A000045">Fibonacci sequence</a>, and the combinatorial number <script type="math/tex">\displaystyle \dbinom{n}{k} = \frac{n!}{k!(n-k)!}</script> is assumed to be zero for <script type="math/tex">% <![CDATA[
 n < k %]]></script>.</p>
 
-<h3 id="proof">Proof</h3>
+<h4 id="proof">Proof</h4>
 
 <p>We prove the identity using strong induction. For the base case, we trivially verify <script type="math/tex">\binom{0}{0} = F_1 = 1</script>.</p>
 
-<p>As inductive step, we assume that the identity holds for all integers <script type="math/tex">n'</script> such that <script type="math/tex">0 \leq n' \leq n )</script>. Then, we want to deduce that our hypothesis implies the identity holds for <script type="math/tex">n' = n + 1</script>. That is,</p>
+<p>As inductive step, we assume that the identity holds for all integers <script type="math/tex">n'</script> such that <script type="math/tex">0 \leq n' \leq n</script>. Then, we want to deduce that our hypothesis implies the identity holds for <script type="math/tex">n' = n + 1</script>. That is,</p>
 
-<p style="font-size: 100%; text-align: center;"><script type="math/tex">\displaystyle \sum_{k=0}^{n+1}\dbinom{n-k}{k} = \dbinom{n+1}{0} + \dbinom{n}{1} + \cdots + \dbinom{0}{n+1} = F_{n+2}</script>.</p>
+<p style="font-size: 100%; text-align: center;"><script type="math/tex">\displaystyle \sum_{k=0}^{n+1}\dbinom{n+1-k}{k} = \dbinom{n+1}{0} + \dbinom{n}{1} + \cdots + \dbinom{0}{n+1} = F_{n+2}</script>.</p>
 
 <p>We need to consider the “Pascal’s Triangle” formula for combinatorials,</p>
 
@@ -151,6 +151,29 @@ n < k %]]></script>.</p>
 <p><script type="math/tex">\displaystyle \sum_{k=0}^{n+1}\dbinom{n+1-k}{k} = F_{n+1} + F_{n} = F_{n+2}</script>.</p>
 
 <p>Therefore, we proved the identity holds for all integers <script type="math/tex">n \geq 0</script>. ∎</p>
+
+<h4 id="derivation">Derivation</h4>
+<p class="text-justify">Although the identity was proved, the avid reader must be wondering how the formula was obtained in first place. To derive the formula we will use one of the most powerful weapon in combinatorics: generating functions.</p>
+
+<p>Let us consider the following ordinary generating function,</p>
+
+<p style="font-size: 100%; text-align: center;"><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0} \Big \lbrace \sum_{k=0}^{n}\dbinom{n-k}{k} \Big \rbrace x^n</script>.</p>
+
+<p>where the coefficient of <script type="math/tex">x^n</script> in the expansion of <script type="math/tex">F(x)</script> corresponds to the quantitiy of interest.</p>
+
+<p><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0} \Big \lbrace \sum_{k=0}^{n}\dbinom{n-k}{k} \Big \rbrace x^n</script>.</p>
+
+<p><script type="math/tex">\displaystyle F(x) = \sum_{k \geq  0} \Big \lbrace   \sum_{n \geq  0}  \dbinom{n}{k}  x^{n+k}  \Big \rbrace</script>.</p>
+
+<p><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0}  \Big \lbrace   \sum_{k \geq  0}   \dbinom{n}{k}  x^{k}   \Big \rbrace  x^n</script>.</p>
+
+<p><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0}  \Big \lbrace   \sum_{k = 0}^{n}   \dbinom{n}{k}  x^{k}   \Big \rbrace  x^n</script>.</p>
+
+<p><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0}  (1-x)^n  x^n  = \sum_{n \geq  0}  \left( (1-x) x \right)^n</script>.</p>
+
+<p><script type="math/tex">\displaystyle F(x) = \frac{1}{1-(1-x)x} = \frac{1}{1-x-x^2}</script>.</p>
+
+<p>We recognize the last expression as the generating function of the <script type="math/tex">F_{n+1}</script> Fibonacci term. ∎</p>
 
   </article>
 
