@@ -66,8 +66,8 @@ $$ \displaystyle F(x) = \sum_{n \geq  0}  \Big \lbrace   \sum_{k \geq  0}   \dbi
 
 $$ \displaystyle F(x) = \sum_{n \geq  0}  \Big \lbrace   \sum_{k = 0}^{n}   \dbinom{n}{k}  x^{k}   \Big \rbrace  x^n $$.
 
-$$ \displaystyle F(x) = \sum_{n \geq  0}  (1-x)^n  x^n  = \sum_{n \geq  0}  \left( (1-x) x \right)^n  $$.
+$$ \displaystyle F(x) = \sum_{n \geq  0}  (1+x)^n  x^n  = \sum_{n \geq  0}  \left( (1+x) x \right)^n  $$.
 
-$$ \displaystyle F(x) = \frac{1}{1-(1-x)x} = \frac{1}{1-x-x^2}$$.
+$$ \displaystyle F(x) = \frac{1}{1-(1+x)x} = \frac{1}{1-x-x^2}$$.
 
 We recognize the last expression as the generating function of the $$F_{n+1}$$ Fibonacci term. ∎
