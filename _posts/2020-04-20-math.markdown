@@ -70,4 +70,5 @@ $$ \displaystyle F(x) = \sum_{n \geq  0}  (1+x)^n  x^n  = \sum_{n \geq  0}  \lef
 
 $$ \displaystyle F(x) = \frac{1}{1-(1+x)x} = \frac{1}{1-x-x^2}$$.
 
-We recognize the last expression as the generating function of the $${n+1)^{th}$$ term of the Fibonacci sequence. ∎
+We recognize the last expression as the generating function of the  $$(n+1)^{th}$$ term of the Fibonacci sequence. ∎
+{: .text-justify}
