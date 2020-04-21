@@ -28,7 +28,7 @@ We prove the identity using strong induction. For the base case, we trivially ve
 
 As inductive step, we assume that the identity holds for all integers $$n'$$ such that $$ 0 \leq n' \leq n $$. Then, we want to deduce that our hypothesis implies the identity holds for $$ n' = n + 1 $$. That is, 
 
-$$ \displaystyle \sum_{k=0}^{n+1}\dbinom{n-k}{k} = \dbinom{n+1}{0} + \dbinom{n}{1} + \cdots + \dbinom{0}{n+1} = F_{n+2}$$.
+$$ \displaystyle \sum_{k=0}^{n+1}\dbinom{n+1-k}{k} = \dbinom{n+1}{0} + \dbinom{n}{1} + \cdots + \dbinom{0}{n+1} = F_{n+2}$$.
 {: style="font-size: 100%; text-align: center;"}
 
 We need to consider the "Pascal's Triangle" formula for combinatorials,
