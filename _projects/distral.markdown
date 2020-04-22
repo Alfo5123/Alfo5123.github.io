@@ -1,7 +1,7 @@
 ---
 layout: project
-title: Project 1
-description: a project with a background image
+title: Robust-Multitask-RL
+description: Reproducing DeepMind's "Distral" Paper
 img: /assets/img/Distral1.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Project 4
-description: a project with a background image
+title: RayTracer
+description: Simple implementation of a RayTracer in Java
 img: /assets/img/RayTracer.png
 ---
 

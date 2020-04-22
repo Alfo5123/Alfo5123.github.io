@@ -1,0 +1,15 @@
+---
+layout: post
+title: Curious L identity
+date: 2020-04-21 11:12:00-0400
+description: First music post
+tags: music
+categories: idea
+hidden: true
+---
+
+
+A bit of juice
+{: .text-justify}
+
+$$ E = mc^2$$

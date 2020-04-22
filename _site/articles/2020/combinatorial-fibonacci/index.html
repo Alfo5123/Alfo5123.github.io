@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
 
   <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/articles/2020/math/">
+  <link rel="canonical" href="http://localhost:4000/articles/2020/combinatorial-fibonacci/">
 
   <!-- CSS -->
   <link rel="stylesheet" href="http://localhost:4000/css/style.css">
@@ -66,6 +66,8 @@
         
           
             <a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+          
+        
           
         
           
@@ -153,7 +155,7 @@ n < k %]]></script>.</p>
 <p>Therefore, we proved the identity holds for all integers <script type="math/tex">n \geq 0</script>. ∎</p>
 
 <h4 id="derivation">Derivation</h4>
-<p class="text-justify">Although the identity was proved, the avid reader must be wondering how the formula was obtained in first place. To derive the formula we will use one of the most powerful weapon in combinatorics: generating functions.</p>
+<p class="text-justify">Although the identity was proved, the avid reader must be wondering how the formula was obtained in first place. To derive the formula we will use one of the most powerful weapons in combinatorics: generating functions.</p>
 
 <p>Let us consider the following ordinary generating function,</p>
 
@@ -169,15 +171,13 @@ n < k %]]></script>.</p>
 
 <p><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0}  \Big \lbrace   \sum_{k = 0}^{n}   \dbinom{n}{k}  x^{k}   \Big \rbrace  x^n</script>.</p>
 
-<p><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0}  (1-x)^n  x^n  = \sum_{n \geq  0}  \left( (1-x) x \right)^n</script>.</p>
+<p><script type="math/tex">\displaystyle F(x) = \sum_{n \geq  0}  (1+x)^n  x^n  = \sum_{n \geq  0}  \left( (1+x) x \right)^n</script>.</p>
 
-<p><script type="math/tex">\displaystyle F(x) = \frac{1}{1-(1-x)x} = \frac{1}{1-x-x^2}</script>.</p>
+<p><script type="math/tex">\displaystyle F(x) = \frac{1}{1-(1+x)x} = \frac{1}{1-x-x^2}</script>.</p>
 
-<p>We recognize the last expression as the generating function of the <script type="math/tex">F_{n+1}</script> Fibonacci term. ∎</p>
+<p class="text-justify">We recognize the last expression as the generating function of the  <script type="math/tex">(n+1)^{th}</script> term of the Fibonacci sequence. ∎</p>
 
   </article>
-
-  
 
 </div>
 
