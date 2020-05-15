@@ -1,0 +1,27 @@
+---
+layout: post
+title: Cuerda
+date: 2020-05-14 11:12:00-0400
+description: 
+tags: poetry
+categories: idea
+hidden: true
+---
+
+
+La quebradiza cuerda,     
+a la que nos sujetamos como a la vida,   
+sostiene con firmeza un elefant herido  
+que no sabe, ni sabrá, como llegó ahí;  
+y con las manos desgarradas soportamos  
+aquel despreciable e incesante llanto  
+que el dolor sabe producir en la criatura.  
+{: style="color:black; font-size: 100%; text-align: center;"} 
+Ya es muy tarde, no hay vuelta atrás,   
+¿no será el regalo de algún dios envidioso?  
+¿por qué no sólo taparse los oídos y caminar?  
+La resistancia a la que nos acostumbramos,   
+abraza nuestra tristeza y nos ciega lentamente  
+Sólo espero algún día llegar a creer  
+que si seguimos aquí, es por culpa de la cuerda.  
+{: style="color:black; font-size: 100%; text-align: center;"} 

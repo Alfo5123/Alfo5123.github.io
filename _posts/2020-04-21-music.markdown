@@ -16,8 +16,13 @@ hidden: true
 </div>
 
 
+<br />
+<br />
+{: .text-justify}
+
 #### How to easily start again in music after a long break?
 {: .text-justify}
+<br />
 
 - Get access to the instrument you loved. 
 
