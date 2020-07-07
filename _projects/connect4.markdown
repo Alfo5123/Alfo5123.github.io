@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: external
 title: Connect4 AI
 description: Monte Carlo Tree Search Based AI Connect 4 Bot
 img: /assets/img/Connect4.png
+external_url: https://github.com/Alfo5123/Connect4
 ---
 
 Every project has a beautiful feature shocase page. It's easy to include images, in a flexible 3-column grid format. Make your photos 1/3, 2/3, or full width. Project 2. 

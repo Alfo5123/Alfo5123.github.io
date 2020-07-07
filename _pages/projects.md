@@ -8,9 +8,11 @@ order: 4
 
 
 <div class="project ">
-{% for project in site.projects %}
+{% assign n = site.posts | size %}
+{% assign listprojects = site.projects | sample: n %}
+{% for project in listprojects %}
     <div class="thumbnail">
-        <a href="{{ project.url | prepend: site.baseurl | prepend: site.url }}">
+        <a href="{{project.external_url}}" target="_blank">
         {% if project.img %}
         <img class="thumbnail" src="{{ project.img | prepend: site.baseurl | prepend: site.url }}"/>
         {% else %}
