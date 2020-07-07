@@ -16,7 +16,7 @@ social: true
 I received my MSc (with Distinction) in *Statistical Learning Theory* from [Skoltech](https://www.skoltech.ru/en/education/msc-programs/ds/slt/) and [Higher School of Economics](https://www.hse.ru/en/ma/sltheory/), supervised by [Maxim Panov](https://scholar.google.ru/citations?user=BqDhGJQAAAAJ&hl=en&oi=ao). I worked on unsupervised graph embedding as member of the [Structural Learning Group](http://strlearn.ru/).
 {: .text-justify}
 
-My research interests currently lie within Representation Learning, Statistical learning theory, Optimization and Reinforcement Learning. My updated CV is available [here](https://drive.google.com/file/d/1q9I7FZ04GYIMKsgfnCm45Wx5HMGeDLIx/view?usp=sharing).
+My research interests currently lie within Representation Learning, Statistical learning theory, Optimization and Reinforcement Learning. My updated CV is available [here](https://drive.google.com/file/d/15Otrviz1F0Rk4x7jBPFeerwhudlk61Yv/view?usp=sharing).
 {: .text-justify}
 
 This website constitutes a personal experimental mechanism to hierarchically organize my thoughts, thus forcing myself to remain in a creative state of mind by improving my writing skills and developing a constant learning habit.
