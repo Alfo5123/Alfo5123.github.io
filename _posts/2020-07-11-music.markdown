@@ -1,0 +1,60 @@
+---
+layout: post
+title: Meraki
+date: 2020-04-21 11:12:00-0400
+description: Lessons learned from composing a song
+tags: music
+categories: idea
+hidden: true
+---
+
+
+
+<iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/856387372&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/alfredo-de-la-fuente512" title="Alfredo De la Fuente" target="_blank" style="color: #cccccc; text-decoration: none;">Alfredo De la Fuente</a> · <a href="https://soundcloud.com/alfredo-de-la-fuente512/meraki" title="Meraki" target="_blank" style="color: #cccccc; text-decoration: none;">Meraki</a></div>
+
+<div class="col three caption">
+    Probably one of the most productive Junes I have ever had, despite my close encounter with death.
+</div>
+
+<br />
+<br />
+{: .text-justify}
+
+Truth be told, the idea of composing a song from scratch in a month still resonates as crazy to me. Nobody warns you how challenging it could be. Yet I enjoyed every single part of it. Despite I did not know where it was heading most of times, suddenly pieces started to fit and inspiration played its role: it started to sound like a song.
+{: .text-justify}
+
+Just as Dante was kindly guided through the circles of Hell by Virgil, I should deeply thank [Eliza Carrington](https://www.instagram.com/eliza.carrington/) for her guitar/composition lessons and songwriting advices, which made possible this crazy song idea I had. It worths mentioning, she happens to be an [amazing singer, songwriter and guitarist](https://www.youtube.com/channel/UCslUnS2O1EMLiJPeRDXksMQ) and I feel lucky to learn from her experience and perspective. 
+{: .text-justify}
+
+
+#### What did I learn?
+{: .text-justify}
+- Do not understimate the power of secondary dominants. 
+- The balance between tension and resolution is key.
+- Explore imagery and metaphors in conveying emotional lyrics.
+- Adding a sad piano, choir, or odd drums could lead to interesting ideas.
+- Avoiding predictability by incorporating variations and arrangements.
+- Enjoying the process itself is the best reward.
+
+
+<div class="img_row">
+    <img class="col one" src="{{ site.baseurl }}/assets/img/MerakiWriting.png" alt="" title="Lyrics" />
+    <img class="col one" src="{{ site.baseurl }}/assets/img/LyricsMeraki.png" alt="" title="Chord Progression"/>
+    <img class="col one" src="{{ site.baseurl }}/assets/img/MerakiProduction.png" alt="" title="Mixing"/>
+</div>
+<div class="col three caption">
+    Song's journey
+</div>
+
+
+I deeply apologize to all my close friends who were almost emotionally forced to listen to my endless song drafts and providing me valuable feedback. You are the best! 
+{: .text-justify}
+
+Hopefully this is only the start :)
+
+
+
+
+
+
+
