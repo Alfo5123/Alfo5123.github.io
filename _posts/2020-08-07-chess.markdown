@@ -1,0 +1,37 @@
+---
+layout: post
+title: Lucky moves
+date: 2020-04-21 11:12:00-0400
+description: A journey towards 1500
+tags: chess
+categories: idea
+hidden: true
+---
+
+
+>  “Chess is the struggle against the error.” – Johannes Zukertort
+
+Let me share with you some of the memorable games I had during my struggling journey towards 1500 ELO rating. I guess if life is like chess, I have no idea how to play this game.
+
+<iframe id="6933666" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933666"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933666"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
+
+<iframe id="6933638" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933638"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933638"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
+
+<iframe id="6933622" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933622"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933622"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
+
+<iframe id="6933630" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933630"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933630"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
+
+<iframe id="6933490" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933490"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933490"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
+Last but not least, one of my favorites, my first brilliant move in a game. 
+
+<iframe id="6933730" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933730"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933730"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
+
+
+
+
