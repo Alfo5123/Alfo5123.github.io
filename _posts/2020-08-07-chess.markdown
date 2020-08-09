@@ -31,6 +31,10 @@ Let me share with you some of the memorable games I had during my struggling jou
 
 <iframe id="6936284" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6936284"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6936284"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
 
+Suddenly, the messy game that allowed me to pass the 1500 ELO bar, 
+
+<iframe id="6938742" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6938742"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6938742"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
 Last but not least, one of my favorites, my first brilliant move in a game. 
 
 <iframe id="6933730" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933730"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933730"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
