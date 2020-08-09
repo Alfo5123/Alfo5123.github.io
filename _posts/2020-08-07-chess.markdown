@@ -2,7 +2,7 @@
 layout: post
 title: Lucky moves
 date: 2020-04-21 11:12:00-0400
-description: A journey towards 1500
+description: A journey towards 1500 ELO
 tags: chess
 categories: idea
 hidden: true
@@ -26,6 +26,8 @@ Let me share with you some of the memorable games I had during my struggling jou
 
 
 <iframe id="6933490" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6933490"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6933490"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+
+<iframe id="6936284" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=6936284"></iframe><script>window.addEventListener("message",e=>{e['data']&&"6936284"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
 
 Last but not least, one of my favorites, my first brilliant move in a game. 
 
