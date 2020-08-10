@@ -1,0 +1,29 @@
+---
+layout: post
+title: Hello World (Again)
+date: 2020-08-09
+description: New Year's resolution turned real.
+categories: idea
+tags: programming
+hidden: true
+---
+Competitive Programming has always been one of my passions, although not a reciprocating one. It was around 2010 when I first heard about it at my university. What started as an authentic journey towards constant Rejected or TLE, turned into a remarkable opportunity to make great friendships and improve my problem-solving skills, which in retrospect shaped most of my later choices in life. 
+{: .text-justify}
+
+One of my New Year's resolutions, perhaps influenced by extended conversations with an outstanding programmer and food addict, was to improve my competitive programming skills by investing a considerable amount of time studying algorithms from a theoretical and practical point of view.  Consequently, as a metric of improvement, I considered no other than the renowned Russian competitive programming platform [Codeforces](https://codeforces.com/).  My ambitious hope: to become purple ranked (>1900 ELO). Only time will tell, yet I will use this [repository](https://github.com/Alfo5123/CodeTrain) to track my progress.  
+{: .text-justify}
+
+{% highlight c++ %}
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    return 0;
+}
+
+{% endhighlight %}
+
+
+
