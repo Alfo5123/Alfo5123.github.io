@@ -2,12 +2,11 @@
 layout: post
 title: Lucky moves
 date: 2020-04-21 11:12:00-0400
-description: A journey towards 1500 ELO
+description: A journey towards 1500 ELO.
 tags: chess
 categories: idea
 hidden: true
 ---
-
 
 >  “Chess is the struggle against the error.” – Johannes Zukertort
 
