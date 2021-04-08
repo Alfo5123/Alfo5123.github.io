@@ -132,9 +132,6 @@ GEM
     jekyll-github-metadata (2.13.0)
       jekyll (>= 3.4, < 5.0)
       octokit (~> 4.0, != 4.4.0)
-    jekyll-katex (0.1.4)
-      execjs (~> 2.7)
-      jekyll (~> 3.8)
     jekyll-mentions (1.5.1)
       html-pipeline (~> 2.3)
       jekyll (>= 3.7, < 5.0)
@@ -276,11 +273,10 @@ DEPENDENCIES
   github-pages
   jekyll
   jekyll-email-protect
-  jekyll-katex
   jekyll-paginate
   jekyll-scholar
   jemoji
   unicode_utils
 
 BUNDLED WITH
-   1.17.3
+   2.2.4

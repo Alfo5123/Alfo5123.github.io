@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning openings
+title: Securing victory
 date: 2020-08-10 11:12:00-0400
 description: The real struggle.
 tags: chess

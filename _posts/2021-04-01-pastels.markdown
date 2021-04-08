@@ -1,0 +1,30 @@
+---
+layout: post
+title:  Introduction to pastels
+date: 2021-04-01 11:12:00-0400
+description: First experiments
+categories: idea
+tags: images
+hidden: true
+---
+Life knows how to push the right buttons. There I was, triggered by the unreasonable will to try new things, once again. After buying a few basic books on drawing and watching some tutorials, I was already excited to start without a clear purpose but to explore my creativity. Let me share some of the experiments so far. 
+
+<div class="img_row">
+    <img class="col two first" src="{{ site.baseurl }}/assets/img/pastel_2.jpeg">
+    <img class="col one last" src="{{ site.baseurl }}/assets/img/pastel_1.jpeg">
+</div>
+
+<div class="col three caption">
+    Clearly, there is tons of room for improvement. 
+</div>
+
+I should admit this medium offers interesting possibilities of blending colors, by adding different values in layers and provide vivid tonalities and texture to the drawing. I will be dedicating some free time to learn the painting and drawing techniques. I am afraid it's a long journey indeed. Yet again, art finds its way to put life to a halt. 
+
+
+<blockquote>
+    Painting is easy when you don’t know how, 
+
+    but very difficult when you do.
+
+    —Edgar Degas
+</blockquote>
