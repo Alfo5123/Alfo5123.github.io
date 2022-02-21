@@ -3,7 +3,7 @@ layout: post
 title: Removing rust
 date: 2021-11-27 11:12:00-0400
 description: Nerd snipping at its best
-tags: math science
+tags: math 
 categories: idea
 hidden: true
 ---
@@ -39,12 +39,25 @@ $$ I = \sum_{n=2}^\infty \frac{1}{n+1} \sum_{i=1}^{\lfloor \frac{n}{2} \rfloor} 
 
 *Proposed by Joe Santmyer, Las Cruces, NM., Vol 128, Issue 8, American Mathematical Monthly, 2021.*
 
+
+
+### Problem 12279
+Let $$j$$ and $$n$$ be positive integers of opposite parity with $$j<n$$. Prove 
+
+$$ \sum_{k=j}^n \frac{(-1)^k (k-1)!}{2^k} \binom{k}{j} {n \brace k} = 0 $$
+
+ where $${n \brace k}$$ are the Stirling numbers of second kind. *Proposed by  B. Isaacson (USA), American Mathematical Monthly, 2021.*
+
 ### Problem 12287
 Prove 
 
 $$ \sum_{n=1}^\infty \left( n \left( \sum_{k=n}^\infty \frac{1}{k^2} \right)^2  - \frac{1}{n} \right) = \frac12\left( 3 - \zeta(2) + 3\zeta(3) \right) $$
 
 *Proposed by - O. Furdui and A. Sintamarian (Romania), Vol 128, American Mathematical Monthly 2021*.
+
+
+### Problem 12300
+Let $$n$$ be an integer such that $$n \geq 3$$. Prove that there is no permutation $$\pi$$ of $$\{ 1, 2, \cdots, n \}$$ such that $$\pi(1), 2\pi(2), \cdots, n\pi(n)$$ are distinct modulo $$n$$. *Proposed by H. A. ShahAli, Tehran, Iran. American Mathematical Monthly, 2022.*
 
 
 **More solutions will be available after the deadline.**

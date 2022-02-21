@@ -3,7 +3,7 @@ layout: post
 title: A combinatoric approach
 date: 2021-09-22 11:12:00-0400
 description: Few challenges to escape routine
-tags: math science
+tags: math
 categories: idea
 hidden: true
 ---

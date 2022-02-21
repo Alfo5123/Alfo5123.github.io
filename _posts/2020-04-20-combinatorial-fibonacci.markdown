@@ -3,7 +3,7 @@ layout: post
 title: Curious combinatorial identity
 date: 2020-04-20 11:12:00-0400
 description: First math post
-tags: math science
+tags: math 
 categories: idea
 hidden: true
 ---
