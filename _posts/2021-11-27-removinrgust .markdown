@@ -67,7 +67,7 @@ Let $$n$$ be an integer such that $$n \geq 3$$. Prove that there is no permutati
 [**Solution**](https://drive.google.com/file/d/1emEC0DJYUp-IKNVsAZc7UI3yLYSYeXIy/view?usp=sharing)
 
 ### Problem 12316
- For each $i$ in $$\{1, 2, \cdots C\}$$ , we have $$2i$$ coins with color $i$. Place these $$C(C+1)$$ coins in a line. A move consists of the transposition of two adjacent coins. Let $m$ be the minimum number of moves required to reach a configuration where all coins of the same color are together in a run of consecutive coins. Show that the maximum value of $m$ over all initial configurations is $$(C-1)C(C+1)(3C+2)/12$$. *Proposed by H. A. ShahAli, Tehran, Iran, and Manija Shahali, Bakersfield, CA. American Mathematical Monthly, Vol 129 No 4, 2022.*
+ For each $$i$$ in $$\{1, 2, \cdots C\}$$ , we have $$2i$$ coins with color $i$. Place these $$C(C+1)$$ coins in a line. A move consists of the transposition of two adjacent coins. Let $$m$$ be the minimum number of moves required to reach a configuration where all coins of the same color are together in a run of consecutive coins. Show that the maximum value of $m$ over all initial configurations is $$(C-1)C(C+1)(3C+2)/12$$. *Proposed by H. A. ShahAli, Tehran, Iran, and Manija Shahali, Bakersfield, CA. American Mathematical Monthly, Vol 129 No 4, 2022.*
 
 
 ### Problem 12349
