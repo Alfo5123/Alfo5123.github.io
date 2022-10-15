@@ -24,13 +24,14 @@ $$ \int_{0}^\infty \frac{\sin^2(x) - x \sin(x)}{x^3} dx = \frac12 - \log2 $$
 *Proposed by S. M. Stewart (Australia), American Mathematical Monthly, Vol.128, 2021*
 {: .text-justify}
 
-[**Solution**](https://drive.google.com/file/d/102CQ4zVthtwvhN0y5nFxDM86jouB5liy/view?usp=sharing)
+[**Solution**](https://drive.google.com/file/d/1b7NhVFVbdj0yK0ONUsFoxXpXdJ8G93rZ/view?usp=sharing)
 
 
 ### Problem 12265
 For a fixed positive integer $$k$$, let $$a_0 = a_1 = 1$$ and $$a_n = a_{n-1} + (k-n)^2 a_{n-2}$$ for $$n \geq 2$$. Show that $$a_k = (k-1)!$$. 
 *Proposed by R. Dempsey (USA), American Mathematical Monthly, Vol.128, 2021*
 
+[**Solution**](https://drive.google.com/file/d/10Wl1jdBTs7c7hAZ4e9qfWXGbrJjYHS3S/view?usp=sharing)
 
 ### Problem 12276
 Prove 
@@ -39,6 +40,7 @@ $$ I = \sum_{n=2}^\infty \frac{1}{n+1} \sum_{i=1}^{\lfloor \frac{n}{2} \rfloor} 
 
 *Proposed by Joe Santmyer, Las Cruces, NM., Vol 128, Issue 8, American Mathematical Monthly, 2021.*
 
+[**Solution**](https://drive.google.com/file/d/1Q-Yydcuivq3Z6a18pD9RpcdQ_oHC08cR/view?usp=sharing)
 
 
 ### Problem 12279
@@ -48,6 +50,8 @@ $$ \sum_{k=j}^n \frac{(-1)^k (k-1)!}{2^k} \binom{k}{j} {n \brace k} = 0 $$
 
  where $${n \brace k}$$ are the Stirling numbers of second kind. *Proposed by  B. Isaacson (USA), American Mathematical Monthly, 2021.*
 
+ [**Solution**](https://drive.google.com/file/d/14Hy1BQECb5hz5Zq8dnRwX-4qPJ_74iSA/view?usp=sharing) 
+
 ### Problem 12287
 Prove 
 
@@ -55,13 +59,26 @@ $$ \sum_{n=1}^\infty \left( n \left( \sum_{k=n}^\infty \frac{1}{k^2} \right)^2  
 
 *Proposed by - O. Furdui and A. Sintamarian (Romania), Vol 128, American Mathematical Monthly 2021*.
 
+[**Solution**](https://drive.google.com/file/d/1BKifaMXGGZkPF105gCxIgoxnWi1duL1e/view?usp=sharing)
 
 ### Problem 12300
 Let $$n$$ be an integer such that $$n \geq 3$$. Prove that there is no permutation $$\pi$$ of $$\{ 1, 2, \cdots, n \}$$ such that $$\pi(1), 2\pi(2), \cdots, n\pi(n)$$ are distinct modulo $$n$$. *Proposed by H. A. ShahAli, Tehran, Iran. American Mathematical Monthly, 2022.*
 
+[**Solution**](https://drive.google.com/file/d/1emEC0DJYUp-IKNVsAZc7UI3yLYSYeXIy/view?usp=sharing)
+
+### Problem 12316
+ For each $i$ in $$\{1, 2, \cdots C\}$$ , we have $$2i$$ coins with color $i$. Place these $$C(C+1)$$ coins in a line. A move consists of the transposition of two adjacent coins. Let $m$ be the minimum number of moves required to reach a configuration where all coins of the same color are together in a run of consecutive coins. Show that the maximum value of $m$ over all initial configurations is $$(C-1)C(C+1)(3C+2)/12$$. *Proposed by H. A. ShahAli, Tehran, Iran, and Manija Shahali, Bakersfield, CA. American Mathematical Monthly, Vol 129 No 4, 2022.*
+
+
+### Problem 12349
+
+Let $$A_n$$ be the set of permutations of $$\{ 1, \cdots, n \}$$ that have at least one fixed point. For $$\pi \in A_n$$, we write $$\text{Fix}(\pi)$$ for $$\{ j : \pi(j) = j\}$$. Evaluate
+$$ S = \sum_{\pi \in A_n} \left( \frac{\text{sign}(\pi)}{| \text{Fix}(\pi) |} \sum_{j \in \text{Fix}(\pi) } j \right) $$. *Proposed by Roberto Tauraso, Tor Vergata University of Rome, Italy. American Mathematical Monthly, Vol 129 No 8, 2022.*
+
 
 **More solutions will be available after the deadline.**
 
-
 One of the main intentions of this post is to thank Professor Tauraso for sharing knowledge, motivating with his work, and freely exchanging ideas with students across the internet. If someday I visit Rome again, I will definitely pass by your office to meet you. Until then, *Grazie mille!*  :)
 {: .text-justify}
+
+
