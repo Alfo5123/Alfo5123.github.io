@@ -5,5 +5,6 @@ group :jekyll_plugins do
     gem 'jekyll-email-protect'
     gem 'jekyll-paginate'
     gem 'jemoji'
+    gem "kramdown", ">= 2.3.1"
     gem 'unicode_utils'
 end
