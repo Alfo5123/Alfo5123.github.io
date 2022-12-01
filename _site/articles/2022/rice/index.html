@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title> | Rice</title>
+  <meta name="description" content="Personal website.
+">
+
+  <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/articles/2022/rice/">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://localhost:4000/css/style.css">
+
+   </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <strong></strong> 
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="http://localhost:4000/">About</a>
+	
+	<!-- Ideas --> 
+	<a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+
+        <!-- Articles -->
+        <a class="page-link" href="http://localhost:4000/articles/">Articles</a>
+
+	<!-- Projects --> 
+	<a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+
+        <!-- Pages 
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+	-->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Rice</h1>
+    <p class="post-meta">November 30, 2022</p>
+    <p class="post-meta"> Reading Time ~ 
+  
+  
+    6 mins
+  
+
+
+</p>
+  </header>
+
+  <article class="post-content">
+    <p>Have you ever struggled with cooking rice perfectly?</p>
+
+<p>Are you tired of reading overly precise recipes like this?</p>
+
+<blockquote>
+  <p><em>For cooking 1 to 2 cups of dry rice, a 2-quart saucepan is just the right size. Too big and the rice may not steam right. 
+Too small and it will boil over and make a sticky mess. You will add 1 3/4 cups water.</em></p>
+</blockquote>
+
+<p>Or vague general proportions?</p>
+
+<blockquote>
+  <p><em>Add 2 parts water and 1 part rice to a large pot. For slightly firmer rice, use 1 part liquid to 2/3 parts rice.</em></p>
+</blockquote>
+
+<p>Let us evoke the Asian wisdom, which goes beyond standard pan sizes or fancy volume unit measures.</p>
+
+<blockquote>
+  <p><strong>To cook proper rice, one should add enough water to the pan so that it hits the first index finger knuckle, while the finger tip vertically touches the surface of the rice.</strong></p>
+</blockquote>
+
+<p>Let’s build up our intution and start with a set of assumptions.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Average measurement (inches)
+</span><span class="n">diameter</span> <span class="o">=</span> <span class="mf">6.</span> 
+<span class="n">height_index_knuckle</span> <span class="o">=</span> <span class="mf">0.8</span>
+
+<span class="c1"># Conversation Rates
+</span><span class="n">inch_to_cm_ratio</span> <span class="o">=</span> <span class="mf">2.54</span> 
+<span class="n">cup_water_to_cm3</span> <span class="o">=</span> <span class="mf">236.588</span>
+
+<span class="c1"># Random Packing Density
+</span><span class="n">random_packing_density</span> <span class="o">=</span> <span class="mf">0.56</span>
+
+<span class="c1"># Number of cups of rice to cook
+</span><span class="n">rice_volume</span> <span class="o">=</span> <span class="mi">2</span> </code></pre></figure>
+
+<p>Main assumptions:</p>
+<ul>
+  <li>Random Packing Density of the grains of rice approximate one of loosely random packed spheres and it’s constant over different medium (air/water).</li>
+  <li>The rice quality (shape) is disregarded in the analysis.</li>
+</ul>
+
+<p>Thus, we can define our main function for the finger heuristic.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">calculate_water</span> <span class="p">(</span><span class="n">pan_diameter</span><span class="p">,</span>
+                     <span class="n">rice_volume</span><span class="p">,</span> 
+                     <span class="n">height_index_knuckle</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">):</span>
+  <span class="s">'''
+  Input:
+    pan_diameter : float 
+      Volume in inches for the pan diameter
+    rice_volume : float
+      Volume in cups for the rice
+    height_index_knuckle : float
+      Length of first index knuckle in inches
+
+  Returns 
+    Ideal water volume to add in cups
+  '''</span>
+  <span class="n">pan_area</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span> <span class="n">pan_diameter</span> <span class="o">*</span> <span class="n">inch_to_cm_ratio</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">4.0</span> 
+  <span class="n">volume_water_added</span> <span class="o">=</span> <span class="p">(</span> <span class="n">height_index_knuckle</span> <span class="o">*</span> <span class="n">inch_to_cm_ratio</span> <span class="p">)</span> <span class="o">*</span> <span class="n">pan_area</span> 
+  <span class="n">volume_water_added</span> <span class="o">+=</span> <span class="n">rice_volume</span> <span class="o">*</span> <span class="n">cup_water_to_cm3</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">random_packing_density</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">volume_water_added</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">cup_water_to_cm3</span> <span class="p">)</span></code></pre></figure>
+
+<p>We plot the results of applying our function to common sauce pan sizes and rice quantities.</p>
+
+<div class="img_row" style="height: 650px;width: 650px">
+    <img class="col three" src="/assets/img/asian_rice_rule.png" alt="" title="Word Distribution" />
+</div>
+
+<h3 id="a-very-natural-observation-of-the-skeptic-reader-is-what-if-my-finger-is-way-smaller-or-bigger"><em>A very natural observation of the skeptic reader is: what if my finger is way smaller or bigger?</em></h3>
+
+<p>Let us consider the results from the following <a href="https://scielo.conicyt.cl/pdf/ijmorphol/v28n3/art15.pdf">scientific study</a>. Since we only care about the size of the index first knuckle, we have</p>
+
+\[TotalSize =  Tip size + First Phalanx = (3.84±0.59) + (15.82±2.26) \ (mm)\]
+
+<p>Assuming independence of the variables for simplicty,</p>
+
+\[TotalSize =  (3.84+15.82) ± \sqrt{0.59^2 + 2.26^2} = 19.66 ± 2.33 \ (mm)\]
+
+<p>In this way, we can model the first index knuckle size distributions for simplicity as a Gaussian distribution.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">mean_knuckle_size</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">19.66</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">/</span> <span class="n">inch_to_cm_ratio</span><span class="p">)</span> 
+<span class="n">std_knuckle_size</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">2.33</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">0.1</span> <span class="o">/</span> <span class="n">inch_to_cm_ratio</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mean_knuckle_size</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">std_knuckle_size</span><span class="p">,</span> 
+                     <span class="n">mean_knuckle_size</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">std_knuckle_size</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'First Index Knuckle Distribution'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">norm</span><span class="p">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">mean_knuckle_size</span><span class="p">,</span> <span class="n">std_knuckle_size</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'inches'</span><span class="p">)</span></code></pre></figure>
+
+<div class="img_row" style="height: 450px;width: 585px">
+    <img class="col three" src="/assets/img/finger_size_distribution.png" alt="" title="Word Distribution" />
+</div>
+
+<p>We run a MonteCarlo simulation for different size of pans, finger sizes and rice cups.</p>
+
+<div class="img_row" style="height: 600px;width: 600px">
+    <img class="col three" src="/assets/img/asian_rice_rule_2.png" alt="" title="Word Distribution" />
+</div>
+
+<p>We can clearly observe that the different finger size effect is negligible in practice.</p>
+
+<blockquote>
+  <p><strong>“Wisdom comes from experience. Experience is often a result of lack of wisdom.” - Terry Pratchett</strong></p>
+</blockquote>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Common Sauce Pan Sizes - <a href="https://prudentreviews.com/saucepan-sizes/">link</a></li>
+  <li>Conversion Units - <a href="https://www.traditionaloven.com/conversions_of_measures/rice_amounts_converter.html">link</a></li>
+  <li>Random Close Pack - <a href="https://en.wikipedia.org/wiki/Random_close_pack">link</a></li>
+  <li>Scientific Study on Finger Sizes - <a href="https://scielo.conicyt.cl/pdf/ijmorphol/v28n3/art15.pdf">link</a></li>
+</ul>
+
+<h2 id="acknowledgment">Acknowledgment</h2>
+<p>Thanks to Raine Yeh and Pedro Bello-Maldonado for the inspiring conversation.</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+<div class="wrapper">
+    &copy; Copyright 2022 .
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+</div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="http://localhost:4000/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script src="http://localhost:4000/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXXXXXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>
