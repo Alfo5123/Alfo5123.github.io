@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title> | Turnstyle</title>
+  <meta name="description" content="Personal website.
+">
+
+  <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/articles/2023/turnstyle/">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://localhost:4000/css/style.css">
+
+   </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <strong></strong> 
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="http://localhost:4000/">About</a>
+	
+	<!-- Ideas --> 
+	<a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+
+        <!-- Articles -->
+        <a class="page-link" href="http://localhost:4000/articles/">Articles</a>
+
+	<!-- Projects --> 
+	<a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+
+        <!-- Pages 
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+	-->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Turnstyle</h1>
+    <p class="post-meta">February 15, 2023</p>
+    <p class="post-meta"> Reading Time ~ 
+  
+  
+    7 mins
+  
+
+
+</p>
+  </header>
+
+  <article class="post-content">
+    <p>Naturally, a casual walk on a stimulating work environment can trigger the most prominent forms of <a href="https://xkcd.com/356/">nerd snipping</a>. Another addictive puzzle from the ninth floor dazzled me. Hopefully, I can share some of my curiosity with the reader.</p>
+
+<center>
+<div class="img_row" style="height: 450px;width: 450px">
+    <img class="col three" src="/assets/img/turnstyle.png" alt="" title="Turnstyle" />
+</div>
+</center>
+
+<p>The <strong><a href="https://gamewright.com/product/turnstyle">Turnstyle</a></strong> brain teaser consists of two discs connected by a gear on the back. Allowing two types of valid moves:</p>
+
+<ul>
+  <li><em>Shift</em>  all the numbers one position right (clockwise) or left (counter-clockwise).</li>
+  <li><em>Flip</em> the connected gears to change the order the numbers from ABCD to BADC.</li>
+</ul>
+
+<p class="text-justify">After interacting with the puzzle for a few seconds, I knew my best hope was to write a program to find an optimal solution for me.</p>
+
+<p><strong>Let’s solve it!</strong></p>
+
+<p class="text-justify">Being particularly bad at games, I couldn’t help but thinking whether I should invest a few hours into it. Naturally, one thought crossed my mind: the imminent fear of a jigsaw puzzle missing a piece. What if someone on purpose designed a devilish unsolvable game?</p>
+
+<h2 id="mathematical-notions">Mathematical Notions</h2>
+
+<p>Let’s build up our intution and start with a set of assumptions.</p>
+
+<p>[TODO]</p>
+
+<h2 id="time-to-code">Time to code</h2>
+
+<p class="text-justify">From an algorithmic point, the problem consists a graph traversal.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="c1"># Solution state
+</span><span class="n">solution_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span></code></pre></figure>
+
+<p class="text-justify">Function for applying flip operation on the linear array state for the indices [ix%n, (ix+1)%n, (ix+2)%n, (ix+3)%n ] Returns the next state, shifted to have ‘1’ as start of string.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">ix</span><span class="p">):</span>
+    <span class="c1"># Copy mutable state variable 
+</span>    <span class="n">new_state</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Swap the elements (ix%n, (ix+1)%n) and (ix+2)%n, (ix+3)%n)
+</span>    <span class="n">new_state</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">new_state</span><span class="p">[(</span><span class="n">ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">new_state</span><span class="p">[(</span><span class="n">ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">],</span> 
+        <span class="n">new_state</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">new_state</span><span class="p">[(</span><span class="n">ix</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">],</span> <span class="n">new_state</span><span class="p">[(</span><span class="n">ix</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">new_state</span><span class="p">[(</span><span class="n">ix</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">],</span>
+        <span class="n">new_state</span><span class="p">[(</span><span class="n">ix</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Corner cases for resetting 1 at the beginning of the new state
+</span>    <span class="k">if</span> <span class="n">ix</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">ix</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">new_state</span> <span class="o">=</span> <span class="n">new_state</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span><span class="n">new_state</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="k">elif</span> <span class="n">ix</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">ix</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">new_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">new_state</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="n">new_state</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">new_state</span></code></pre></figure>
+
+<p class="text-justify">Due to the high number of possible nodes (11! states = ~39M) in the connected graph, a naive implementation of DFS would reach maximum recursion limits. Thus, I opted for using BFS, since that would allow to answer shortest path queries between any initial state to the solved state.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Create a set for visited states 
+</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="c1"># Keep track of parent states during traversal for path reconstruction
+</span><span class="n">parent</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">parent_idx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="c1"># Perform a traversal through the game states graph using BFS algorithm
+</span><span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+
+  <span class="c1"># Intialization
+</span>  <span class="n">initial_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+  <span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
+  <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">state</span><span class="p">)])</span> 
+  <span class="n">parent</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">solution_state</span><span class="p">)</span>
+  <span class="n">parent_idx</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="c1"># Exploring neighbors not visited
+</span>  <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+    <span class="n">current_state</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">())</span>
+    <span class="n">current_state_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+      <span class="n">next_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+      <span class="k">if</span> <span class="n">next_state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+        <span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
+        <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
+        <span class="n">parent</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_state_tuple</span>
+        <span class="n">parent_idx</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span></code></pre></figure>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Turnstyle solution approach via computer search of SWAP - <a href="https://www.cs.brandeis.edu/~storer/JimPuzzles/ZPAGES/zzzTurnstyle.html">link</a></li>
+  <li>Tom’s Turnstile description and puzzle solution by J. A. Storer - <a href="https://www.cs.brandeis.edu/~storer/JimPuzzles/SLIDE/TomsTurnstile/TomsTurnstile.pdf">link</a></li>
+  <li>Miller, G.A., ‘On the groups generated by 2 operators’, 1901. - <a href="https://www.ams.org/journals/bull/1901-07-10/S0002-9904-1901-00826-9/S0002-9904-1901-00826-9.pdf">link</a>
+    <h2 id="acknowledgment">Acknowledgment</h2>
+    <p>Thanks to Niek Lamoree for the group theory ideas and proofreading this blog post.</p>
+  </li>
+</ul>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+<div class="wrapper">
+    &copy; Copyright 2023 .
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+</div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="http://localhost:4000/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script src="http://localhost:4000/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXXXXXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>
