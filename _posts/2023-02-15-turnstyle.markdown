@@ -8,7 +8,7 @@ categories: idea
 hidden: true
 ---
 
-Naturally, a casual walk on a stimulating work environment can trigger the most prominent forms of [nerd snipping](https://xkcd.com/356/). Another addictive puzzle from the ninth floor dazzled me. Hopefully, I can share some of my curiosity with the reader.    
+Naturally, a casual walk on a stimulating work environment can trigger the most prominent forms of [nerd snipping](https://xkcd.com/356/). Another addictive puzzle from the ninth floor dazzled me. Hopefully, I can share some of my curiosity with you.
 
 <center>
 <div class="img_row" style="height: 450px;width: 450px">
@@ -19,14 +19,14 @@ Naturally, a casual walk on a stimulating work environment can trigger the most 
 The **[Turnstyle](https://gamewright.com/product/turnstyle)** brain teaser consists of two discs connected by a gear on the back. Allowing two types of valid moves:
 
 - *Shift*  all the numbers one position right (clockwise) or left (counter-clockwise).
-- *Flip* the connected gears to change the order the numbers from ABCD to BADC.
+- *Flip* the connected gears to change the order of the numbers from ABCD to BADC.
 
 After interacting with the puzzle for a few seconds, I knew my best hope was to write a program to find an optimal solution for me. 
 {: .text-justify} 
 
 **Let's solve it!**
 
-Being particularly bad at games, I couldn't help but think whether I should invest a few hours into it. Naturally, one thought crossed my mind: the imminent fear of a jigsaw puzzle missing a piece. What if someone on purpose designed a devilish unsolvable game? Let's better take one step back, and first prove the solvability of the game. 
+Being particularly bad at games, I couldn't help but think whether I should invest a few hours into it. Naturally, one thought crossed my mind: the imminent fear of a jigsaw puzzle missing a piece. What if someone designed a devilish unsolvable game? Let's better take one step back, and first prove the solvability of the game. 
 {: .text-justify} 
 
 ## Digging into math
@@ -34,7 +34,7 @@ Being particularly bad at games, I couldn't help but think whether I should inve
 We build up our intution by introducing a set of definitions. Let us consider $$\mathcal{A} = \{1,...,n\}$$. We define a *permutation* $$\sigma$$ as a function from $$\mathcal{A}$$ to itself, which is onto and one-to-one. In other words, a reording of the elements of $$\mathcal{A}$$. Any permutation $$\sigma$$ can be represented by a set of disjoint cycles, with the interpretation that any consecutive pair $$i,j$$ indicates that $$i$$ is mapped to $$j$$, and any $$i$$ at the end of a parenthesized cycle maps to $$j$$ at the start of the same cycle. 
 {: .text-justify} 
 
-For example, the permutation $$\sigma : \{1,2,3,4\} \rightarrow \{2,1,4,3\} $$ can be denoted as $$\sigma = (12)(34)$$. In addition, a cycle consisting of only two elements is called a *transposition* and a cycle of one element (which can be avoided in the cycle notation) is called *fixed point*. In our case, our permutation is expressed as the union of two transpositions.
+For example, the permutation $$\sigma : \{1,2,3,4\} \rightarrow \{2,1,4,3\} $$ can be denoted as $$\sigma = (12)(34)$$. In addition, a cycle consisting of only two elements is called a *transposition* and a cycle of one element (which can be avoided in the cycle notation) is called *fixed point*. In our case, our permutation is expressed as the product of two transpositions.
 {: .text-justify}
 
 We define the order of the permutation is the defined the smallest positive integer $$m$$ such that $$\sigma^m = id$$. That is, how many times we should apply the permutation mapping until we obtain the identity map. For example, for the above permutation $$\sigma$$ the order is $$2$$.
@@ -43,7 +43,7 @@ We define the order of the permutation is the defined the smallest positive inte
 Regarding the parity of a permutation, using the cycle notation, the permutation is odd if and only if this factorization contains an odd number of even-length cycles. Thus, our permutation $$\sigma = (12)(34)$$ is even. It is easy to proof that the composition of two even permutation is another even permutation. This will be a useful property for proving the solvability. 
  {: .text-justify}
 
-The set of all permutations of $$\mathcal{A}$$ is the **symmetric group** of $$n$$ symbols, denoted by $$S_n$$. As detailed in [this](https://kconrad.math.uconn.edu/blurbs/grouptheory/genset.pdf) paper, for a group $$\mathcal{G}$$ a subset $$\mathcal{X} \subset \mathcal{G}$$ is a generating set for $$\mathcal{G}$$ if every $$g \in \mathcal{G}$$ can be written as a product of powers of elements taken from $$\mathcal{X}$$:
+The set of all permutations of $$\mathcal{A}$$ is the **symmetric group** of $$n$$ symbols, denoted by $$\mathcal{S}_n$$. As detailed in [this](https://kconrad.math.uconn.edu/blurbs/grouptheory/genset.pdf) paper, for a group $$\mathcal{G}$$ a subset $$\mathcal{X} \subset \mathcal{G}$$ is a generating set for $$\mathcal{G}$$ if every $$g \in \mathcal{G}$$ can be written as a product of powers of elements taken from $$\mathcal{X}$$:
  {: .text-justify}
 
 <center>
@@ -52,19 +52,28 @@ $$ g = x_1^{a_1} x_2^{a_2} \cdots x_r^{a_r} $$,
 {: .text-justify}
 
 ### Lemma 
-For any odd integer $$ n>4$$, the permutations $$\sigma_1 = (1,2,3,\cdots, n)$$ and $$\sigma_2 = (1,2)(3,4) $$ do not generate $$S_n$$. This solves the open question stated [here](https://www.cs.brandeis.edu/~storer/JimPuzzles/ZPAGES/zzzTurnstyle.html).
+For any odd integer $$ n>4$$, the permutations $$\sigma_1 = (1,2,3,\cdots, n)$$ and $$\sigma_2 = (1,2)(3,4) $$ do not generate $$\mathcal{S}_n$$. This solves the open question stated [here](https://www.cs.brandeis.edu/~storer/JimPuzzles/ZPAGES/zzzTurnstyle.html).
 
 
 ### Proof 
-Let us consider odd values of $$n>4$$. We can easily verify that for odd $$n>8$$, the permutations $$\sigma_1 = (1,2,3,\cdots, n)$$ and $$\sigma_2 = (1,2)(3,4) $$ are both even. Therefore, every composition of these two permutations would result in an even permutation, by the property described above. Thus, it is not possible to generate odd permutations, and ultimately $$S_n$$. ∎
+Let us consider odd values of $$n>4$$. We can easily verify that for odd $$n>8$$, the permutations $$\sigma_1 = (1,2,3,\cdots, n)$$ and $$\sigma_2 = (1,2)(3,4) $$ are both even. Therefore, every composition of these two permutations would result in an even permutation, by the property described above. Thus, it is not possible to generate odd permutations, and ultimately $$\mathcal{S}_n$$. ∎
 {: .text-justify}
 
-### Main Result 
+The orbit of a group 
+As describe on this text 
+
+### Lemma 
 <center>
-$$S_{12} = \langle (1,2,3,\cdots, 12), (1,2) (3,4) \rangle$$
+$$\mathcal{S}_{12} = \langle (1,2,3,\cdots, 12), (1,2) (3,4) \rangle$$
 </center>
 
 ### Proof
+
+Let $$G$$ be a group generated by the set $$S = \{ (1,2,3,\cdots, 12), (1,2) (3,4) \}$$. We choose an element $$x \in \mathcal{X}$$ that is not fixed by $$G$$. Since it suffices to choose a nontrivial generator $$s$$ and consider $$x$$ not fixed by $$s$$, we pick $$x=1$$. Then, the order of $$G$$ is given by, 
+
+$$ \vert G \vert = \vert Y \vert \cdot \vert H \vert$$,
+
+where $$H$$ is the stabilitzer of $$x$$ and $$Y$$ is the $$G$$-orbit of $$x$$.
 
 [TODO]
 
@@ -170,11 +179,37 @@ def bfs(state):
 * Keith Conrad, 'Generating Sets' - [link](https://kconrad.math.uconn.edu/blurbs/grouptheory/genset.pdf)
 * Bases for permutation groups, Tim Burness, University of Bristol - [link](https://seis.bristol.ac.uk/~tb13602/docs/padova_lecture_1.pdf)
 * Group Theory, J.S. Milne - [link](https://www.jmilne.org/math/CourseNotes/GT.pdf)
+* Jeffrey S. Leon, 'On an Algorithm for Finding a Base and a Strong Generating Set for a Group Given by Generating Permutations' - [link](https://www.ams.org/journals/mcom/1980-35-151/S0025-5718-1980-0572868-5/S0025-5718-1980-0572868-5.pdf)
+* Alexander Hulpke, 'Notes on Computational Group Theory' - [link](https://www.math.colostate.edu/~hulpke/lectures/m676cgt/notes.pdf) 
+* Ken Brown, 'Computation in permutation groups' - [link](http://pi.math.cornell.edu/~kbrown/6310/computation.pdf)
 
 ## Acknowledgment
-Thanks to Niek Lamoree for the group theory ideas and proofreading this post. 
+Thanks to Niek Lamoree and Samuel Vidal for the group theory ideas and proofreading this post. 
 
 
 <!----
-
+(1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 2)
+9
+(1, 4, 5, 6, 7, 8, 9, 10, 11, 2, 12, 3)
+8
+(1, 4, 5, 6, 7, 8, 9, 10, 2, 11, 3, 12)
+5
+(1, 4, 5, 6, 7, 9, 8, 2, 10, 11, 3, 12)
+8
+(1, 4, 5, 6, 7, 9, 8, 2, 11, 10, 12, 3)
+6
+(1, 4, 5, 6, 7, 9, 2, 8, 10, 11, 12, 3)
+3
+(1, 4, 5, 7, 6, 2, 9, 8, 10, 11, 12, 3)
+4
+(1, 4, 5, 7, 2, 6, 8, 9, 10, 11, 12, 3)
+1
+(1, 5, 4, 2, 7, 6, 8, 9, 10, 11, 12, 3)
+2
+(1, 5, 2, 4, 6, 7, 8, 9, 10, 11, 12, 3)
+0
+(1, 3, 2, 5, 4, 6, 7, 8, 9, 10, 11, 12)
+1
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[1, 0, 2, 1, 4, 3, 6, 8, 5, 8, 9]
 ---->
