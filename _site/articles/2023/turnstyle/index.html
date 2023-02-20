@@ -94,8 +94,6 @@
         
           
         
-          
-        
 	-->
 
       </div>
@@ -156,7 +154,7 @@
 
 <p class="text-justify">Regarding the parity of a permutation, using the cycle notation, the permutation is odd if and only if this factorization contains an odd number of even-length cycles. Thus, our permutation \(\sigma = (12)(34)\) is even. It is easy to proof that the composition of two even permutation is another even permutation. This will be a useful property for proving the solvability.</p>
 
-<p class="text-justify">The set of all permutations of \(\mathcal{A}\) is the <strong>symmetric group</strong> of \(n\) symbols, denoted by \(\mathcal{S}_n\). As detailed in <a href="https://kconrad.math.uconn.edu/blurbs/grouptheory/genset.pdf">this</a> paper, for a group \(\mathcal{G}\) a subset \(\mathcal{X} \subset \mathcal{G}\) is a generating set for \(\mathcal{G}\) if every \(g \in \mathcal{G}\) can be written as a product of powers of elements taken from \(\mathcal{X}\):</p>
+<p class="text-justify">The set of all permutations of \(\mathcal{A}\) is the <em>symmetric group</em> of \(n\) symbols, denoted by \(\mathcal{S}_n\). As detailed in <a href="https://kconrad.math.uconn.edu/blurbs/grouptheory/genset.pdf">this</a> paper, for a group \(\mathcal{G}\) a subset \(\mathcal{X} \subset \mathcal{G}\) is a generating set for \(\mathcal{G}\) if every \(g \in \mathcal{G}\) can be written as a product of powers of elements taken from \(\mathcal{X}\):</p>
 
 <center>
 $$ g = x_1^{a_1} x_2^{a_2} \cdots x_r^{a_r} $$,
@@ -217,8 +215,6 @@ The stabilizer of 𝑥
  which don't move 𝑥
  when they act on 𝑥
 ".
-
-
 -->
 
 <p class="text-justify">In plain words, by using the two valid game moves (flip and shift), we can reach any possible configuration, for the case of \(n=12\). Therefore, we can now <em>safely</em> verify the solutions using computer search.</p>
@@ -235,19 +231,18 @@ The stabilizer of 𝑥
 
 <h2 id="time-to-code">Time to code</h2>
 
-<p class="text-justify">From an algorithmic point, the problem consists of a graph traversal task. Each node represents each of the cyclic permutation formed by the 12 pieces. In order to restrict the number of nodes,</p>
+<p class="text-justify">From an algorithmic point, the problem consists of a graph traversal task. Each node represents each of the cyclic permutation formed by the 12 pieces. In order to restrict our representation of cyclic permutations, we fix the position of “\(1\)” at the beginning of the tuple, for each node.</p>
+
+<p class="text-justify">Due to the high number of possible nodes (11! states = ~39M) in the connected graph, a naive implementation of DFS would reach maximum recursion limits. Thus, I opted for using BFS, since that would also help answering shortest path queries between any initial state to the solved state.</p>
+
+<p class="text-justify">The only piece missing is the transition function to traverse each node. Since we want to keep the element \(1\) as fixed point in the tuple representation, we apply the transformations of the shape \([i\%n, (i+1)\%n, (i+2)\%n, (i+3)\%n ]\) for a valid \(i\) (\(0\leq i &lt; n\)), and the necessary rotations to keep the element \(1\) at the beginnning.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 
-<span class="c1"># Solution state
-</span><span class="n">solution_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span></code></pre></figure>
-
-<p class="text-justify">Function for applying flip operation on the linear array state for the indices [ix%n, (ix+1)%n, (ix+2)%n, (ix+3)%n ] Returns the next state, shifted to have ‘1’ as start of string.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">ix</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">ix</span><span class="p">):</span>
     <span class="c1"># Copy mutable state variable 
 </span>    <span class="n">new_state</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -270,7 +265,7 @@ The stabilizer of 𝑥
 
     <span class="k">return</span> <span class="n">new_state</span></code></pre></figure>
 
-<p class="text-justify">Due to the high number of possible nodes (11! states = ~39M) in the connected graph, a naive implementation of DFS would reach maximum recursion limits. Thus, I opted for using BFS, since that would allow to answer shortest path queries between any initial state to the solved state.</p>
+<p>We can now run our naive BFS implementation.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Create a set for visited states 
 </span><span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
@@ -279,27 +274,31 @@ The stabilizer of 𝑥
 </span><span class="n">parent</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 <span class="n">parent_idx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
-<span class="c1"># Perform a traversal through the game states graph using BFS algorithm
-</span><span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+<span class="c1"># Intialization of solution state
+</span><span class="n">solution_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">initial_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">solution_state</span><span class="p">)</span>
+<span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="n">initial_state</span><span class="p">])</span> 
+<span class="n">parent</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_state</span>
+<span class="n">parent_idx</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
-  <span class="c1"># Intialization of 
-</span>  <span class="n">initial_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-  <span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
-  <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">state</span><span class="p">)])</span> 
-  <span class="n">parent</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">solution_state</span><span class="p">)</span>
-  <span class="n">parent_idx</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="c1"># Explore immediate neighbors not visited
+</span><span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+  <span class="n">current_state</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">())</span>
+  <span class="n">current_state_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">next_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">next_state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+      <span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
+      <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
+      <span class="n">parent</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_state_tuple</span>
+      <span class="n">parent_idx</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span></code></pre></figure>
 
-  <span class="c1"># Exploring neighbors not visited
-</span>  <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-    <span class="n">current_state</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">())</span>
-    <span class="n">current_state_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-      <span class="n">next_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
-      <span class="k">if</span> <span class="n">next_state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
-        <span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
-        <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
-        <span class="n">parent</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_state_tuple</span>
-        <span class="n">parent_idx</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span></code></pre></figure>
+<p class="text-justify">As far as I remember, the initial game configuration that I encountered was the following,</p>
+<center>
+$$(1,3,5,7,9,11,2,4,6,8,10,12)$$.
+</center>
+<p>Using our BFS traversal, we can obtain the sequence of moves</p>
 
 <h2 id="references">References</h2>
 
