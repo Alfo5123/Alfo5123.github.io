@@ -135,7 +135,7 @@ From an algorithmic point, the problem consists of a graph traversal task. Each 
 Due to the high number of possible nodes (11! states = ~39M) in the connected graph, a naive implementation of DFS would reach maximum recursion limits. Thus, I opted for using BFS, since that would also help answering shortest path queries between any initial state to the solved state. 
 {: .text-justify} 
 
-The only piece missing is the transition function to traverse each node. Since we want to keep the element $$1$$ as fixed point in the tuple representation, we apply the transformations of the shape $$[i\%n, (i+1)\%n, (i+2)\%n, (i+3)\%n ]$$ for a valid $$i$$ ($$0\leq i < n$$), and the necessary rotations to keep the element $$1$$ at the beginnning.
+The only piece missing is the transition function to traverse each node. Since we want to keep the element $$1$$ as fixed point in the tuple representation, we apply the transformations of the shape $$[i\%n, (i+1)\%n, (i+2)\%n, (i+3)\%n ]$$ for a valid $$i$$ ($$0\leq i < n$$), and the necessary rotations to keep the element $$1$$ at the beginnning. Throughout this post, we denote this sequence of transformations as **move($$i$$)**.
 {: .text-justify} 
 
 {% highlight python %}
@@ -144,7 +144,7 @@ import numpy as np
 from copy import deepcopy
 from collections import deque
 
-def flip(state, ix):
+def move(state, ix):
     # Copy mutable state variable 
     new_state = state.copy()
 
@@ -192,7 +192,7 @@ while queue:
   current_state = list(queue.popleft())
   current_state_tuple = tuple(current_state)
   for i in range(n):
-    next_state = tuple(flip(current_state, i))
+    next_state = tuple(move(current_state, i))
     if next_state not in visited:
       visited.add(next_state)
       queue.append(next_state)
@@ -201,11 +201,23 @@ while queue:
 {% endhighlight %}
 
 As far as I remember, the initial game configuration that I encountered was the following,
+
+<center>
+$$(1, 3, 5, 7, 2, 4, 6, 8, 9, 10, 11, 12)$$.
+</center>
+Using our BFS traversal, the sequence of **move** operations with indices $$i=[1, 5, 2, 3, 5]$$  solves the puzzle from the initial state. 
+{: .text-justify} 
+
+In addition, we can observe the log-scaled histogram of paths lengths (from 0 to 15).
 {: .text-justify} 
 <center>
-$$(1,3,5,7,9,11,2,4,6,8,10,12)$$.
+<div class="img_row" style="height: 450px;width: 450px">
+    <img class="col three" src="{{ site.baseurl }}/assets/img/path_lengh_distribution.png" alt="" title="Turnstyle"/>
+</div>
 </center>
-Using our BFS traversal, we can obtain the sequence of moves 
+
+Out of curiosity, I wanted to finish this post by pointing one possible initial configuration that requires the biggest amounts of move operations is $$(1, 12, 11, 10, 9, 8, 6, 7, 4, 5, 2, 3)$$.
+{: .text-justify} 
 
 ## References
 
