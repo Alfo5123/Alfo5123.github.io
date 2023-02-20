@@ -83,7 +83,7 @@ Thus, we can verify
 
 $$ L T L P Q P^3 T L = (1,2) $$
 
-To conclude, we can generate $$\mathcal{S}_{12}$$ using the transpoition $$(1,2)$$ and the 12-cycle permutation.∎
+To conclude, we can generate $$\mathcal{S}_{12}$$ using the transposition $$(1,2)$$ and the 12-cycle permutation.∎
 {: .text-justify}
 
 <!---
