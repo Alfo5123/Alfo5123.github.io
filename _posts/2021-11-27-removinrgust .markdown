@@ -75,6 +75,19 @@ Let $$n$$ be an integer such that $$n \geq 3$$. Prove that there is no permutati
 Let $$A_n$$ be the set of permutations of $$\{ 1, \cdots, n \}$$ that have at least one fixed point. For $$\pi \in A_n$$, we write $$\text{Fix}(\pi)$$ for $$\{ j : \pi(j) = j\}$$. Evaluate
 $$ S = \sum_{\pi \in A_n} \left( \frac{\text{sign}(\pi)}{| \text{Fix}(\pi) |} \sum_{j \in \text{Fix}(\pi) } j \right) $$. *Proposed by Roberto Tauraso, Tor Vergata University of Rome, Italy. American Mathematical Monthly, Vol 129 No 8, 2022.*
 
+### Problem 12377
+An integer is a *one-drop* number if its decimal digits $$d_1, \cdots, d_n$$ satisfy 
+$$ 1 \leq d_1 \leq \cdots \leq d_i > d_{i+1} \leq \cdots \leq d_n $$
+for some $$i$$. For $$n\geq 2$$, how many $$n$$-digit one drop numbers are there? *Proposed by Li Zhou, USA. American Mathematical Monthly, 2023.*
+
+
+### Problem 12385
+
+Let $n$ be a positive integer. Prove
+
+$$ \sum_{1\leq i \leq k \leq n } \frac{(-2)^k}{k+1} \binom{n}{k} \binom{k}{i}^{-1} = \frac{(-1)^n - 1}{2n}$$ 
+
+*Proposed by H. Ohtsuka, Japan. American Mathematical Monthly, 2023.*
 
 **More solutions will be available after the deadline.**
 
