@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title> | Bingo</title>
+  <meta name="description" content="Personal website.
+">
+
+  <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/articles/2023/bingo/">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://localhost:4000/css/style.css">
+
+   </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <strong></strong> 
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="http://localhost:4000/">About</a>
+	
+	<!-- Ideas --> 
+	<a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+
+        <!-- Articles -->
+        <a class="page-link" href="http://localhost:4000/articles/">Articles</a>
+
+	<!-- Projects --> 
+	<a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+
+        <!-- Pages 
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+	-->
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Bingo</h1>
+    <p class="post-meta">March 1, 2023</p>
+    <p class="post-meta"> Reading Time ~ 
+  
+  
+    7 mins
+  
+
+
+</p>
+  </header>
+
+  <article class="post-content">
+    <p class="text-justify">Contrary to most of the nonsense conversations I have in a daily basis, this one presented a reasonable opportunity to delve into. Nostalgia took me back to 2008-2010 (I know what you are thinking!), during my last years of high school. We had the tradition of playing <em>BINGO</em> during the school anniversary festivities. Vividly recall the day when I thought I had won a smaller prize with the “O” pattern: only to realize I had one mistake, unfortunately.</p>
+
+<center>
+<div class="img_row" style="height: 368px;width: 350px">
+    <img class="col three" src="/assets/img/bingo.webp" alt="" title="Bingo Board" />
+</div>
+</center>
+
+<p><br /><br /></p>
+
+<p class="text-justify">Despite I never won myself the maximum prize (around $2000), attributed to the first player completing the whole board, I witness the excitement of lucky people walking among a big crowd towards the presenter to verify their victory. The following question appeared in my mind, among those memories, how difficult was <em>actually</em> to win, afterall? Was it a worthy investment? Was it <em>actually</em> easier to win forming the “N” pattern? Ergo, this post.</p>
+
+<h2 id="game-description">Game Description</h2>
+
+<p>[TODO]</p>
+
+<h2 id="analysis">Analysis</h2>
+
+<p>Let us define the following variables</p>
+<ul>
+  <li>\(X\), number of draws so far</li>
+  <li>\(\mathcal{F}\), random event of winning with full cover pattern.</li>
+  <li>\(\mathcal{B}\), random event of winning with “B” pattern.</li>
+  <li>\(\mathcal{O}\), random event of winning with “O” pattern.</li>
+  <li>\(\mathcal{N}\), random event of winning with “N” pattern.</li>
+</ul>
+
+<h3 id="full-cover-probability">Full Cover Probability</h3>
+
+<p class="text-justify">The cumulative probability of winning with a full cover board in less or equal than \(D\) draws is,</p>
+
+\[\mathbb{P}_F ( X \leq D ) = \frac{\binom{51}{D-24}}{\binom{75}{D}}\]
+
+<p class="text-justify">The distribution has support only for values \(D\geq 24\). Thus,</p>
+
+\[\mathbb{P}_F[ X = D ] = \mathbb{P}_F[ X \leq D ] - \mathbb{P}_F[X \leq D-1]\]
+
+\[\mathbb{P}_F[ X = D ] = \frac{24\binom{51}{D-25}}{ (D-24)\binom{75}{D-1}}\]
+
+<h3 id="pattern-probability">Pattern Probability</h3>
+
+<p class="text-justify">The cumulative probability of winning with a particular pattern \(P\) in less or equal than \(D\) draws is given by</p>
+
+\[\mathbb{P}_P ( X \leq D ) = \sum_{i=P_{size}}^{24} \frac{\binom{24}{i}\binom{51}{D-i}}{\binom{75}{D}} \times \text{Probability of Forming Pattern P with i marked numbers}\]
+
+<p class="text-justify">In particular, we have for patterns \(\mathcal{N}, \mathcal{O}\) and \(\mathcal{B}\) the following expressions,</p>
+
+\[\mathbb{P}_B ( X \leq D ) = \sum_{i=12}^{24} \frac{\binom{24}{i}\binom{51}{D-i}}{\binom{75}{D}} \times \frac{\binom{12}{12}\binom{12}{i-12}}{\binom{24}{i}} = \sum_{i=18}^{24} \frac{ \binom{12}{i-12}\binom{51}{D-i}}{\binom{75}{D}}\]
+
+\[\mathbb{P}_O ( X \leq D ) = \sum_{i=16}^{24} \frac{\binom{24}{i}\binom{51}{D-i}}{\binom{75}{D}} \times \frac{\binom{16}{16}\binom{8}{i-16}}{\binom{24}{i}} = \sum_{i=16}^{24} \frac{ \binom{8}{i-16}\binom{51}{D-i}}{\binom{75}{D}}\]
+
+\[\mathbb{P}_B ( X \leq D ) = \sum_{i=18}^{24} \frac{\binom{24}{i}\binom{51}{D-i}}{\binom{75}{D}} \times \frac{\binom{18}{18}\binom{6}{i-18}}{\binom{24}{i}} = \sum_{i=18}^{24} \frac{ \binom{6}{i-18}\binom{51}{D-i}}{\binom{75}{D}}\]
+
+<h3 id="probability-distributions">Probability Distributions</h3>
+
+<p class="text-justify">We can visually inspect how the cumulative distribution probabilities for the different winning cases look like. We can notice that only after \(60\) draws the chances stop being negligible. This explains why the game lasts that long without winner, even for simpler patterns.</p>
+
+<div class="img_row" style="height: 290px;width: 820px">
+    <img class="col three" src="/assets/img/cumulative_dist.png" alt="" title="Cumulative Distribution" />
+</div>
+
+<p class="text-justify"><em>One interesting observation is how close the probability curves are from each other, defying our initial intuition</em>. We expected that winning by full cover represented a much slimmer chance than by an \(\mathcal{O}\) pattern, for instance. Yet, we observe that at \(70\) draws one has around \(0.15\) probability of winning by full cover vs. a \(0.3\) probability of winning by \(\mathcal{O}\) pattern, if playing in isolation.</p>
+
+<p class="text-justify">However, in the most realistic BINGO setting we have a huge crowd (\(N\sim 1000\)) so we care about the probability of at least one person winning given \(X\) draws so far. Thus, we proceed to obtain the cumulative probability distributions of at least one person winning for each pattern.</p>
+
+<p class="text-justify">If the probability of an event happening is \(p\), then the probability that it will happen at least once in \(N\) times is \(1 - (1-p)^N\). Using this formula, we obtained the following results,</p>
+
+<div class="img_row" style="height: 290px;width: 820px">
+    <img class="col three" src="/assets/img/cumulative_dist_1000.png" alt="" title="Cumulative Distribution - 1000 players" />
+</div>
+
+<p class="text-justify"><em>The updated results match our intuition: where each cumulative probability curve is drastically spread after \(\sim 40\) draws.</em> From these distributions we can calculate the expected value of draws required to win for each case.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Pattern</th>
+      <th style="text-align: center">Expected Draws To Win - 1 player</th>
+      <th style="text-align: center">Expected Draws To Win - 1k players</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Full Cover</td>
+      <td style="text-align: center">72.96</td>
+      <td style="text-align: center">58.79</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">B</td>
+      <td style="text-align: center">72.00</td>
+      <td style="text-align: center">53.16</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">71.52</td>
+      <td style="text-align: center">50.56</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">N</td>
+      <td style="text-align: center">70.15</td>
+      <td style="text-align: center">43.56</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Finally, this analysis leads to another open question for the curious reader: <strong>what would be the ‘optimal’ way of assigning the prize’s values given our probabilistic findings?</strong></p>
+
+<p class="text-justify">I am confident that my high school’s organizers did not think this through or did the math. Since  \(\mathcal{N}, \mathcal{O}\) and even \(\mathcal{B}\) were given kitchen appliances or TVs as prizes, while full cover win was rewarded with the highest prize of 2000 dollars, for a 3 dollar priced BINGO board.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Blog post on Bingo Calculations - <a href="https://randombooks.org/case-study-bingo.html">link</a></li>
+  <li>Blog post on Computation of Bingo Probabilities Numerically - <a href="http://www.durangobill.com/BingoHowTo.html">link</a></li>
+</ul>
+
+<h3 id="acknowlegdments">Acknowlegdments</h3>
+
+<p class="text-justify">Thanks to Maximilian Montserrat for engaging conversations and running the numerical calculations code to verify results.</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+<div class="wrapper">
+    &copy; Copyright 2023 .
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+</div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="http://localhost:4000/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script src="http://localhost:4000/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXXXXXX', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>
