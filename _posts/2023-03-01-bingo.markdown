@@ -8,7 +8,7 @@ categories: idea
 hidden: true
 ---
 
-Contrary to most of the nonsense conversations I have in a daily basis, this one presented a reasonable opportunity to delve into. Nostalgia took me back to 2008-2010 (I know what you are thinking!), during my last years of high school. We had the tradition of playing *BINGO* during the school anniversary festivities. Vividly recall the day when I thought I had won a smaller prize with the "O" pattern: only to realize I had one mistake, unfortunately. 
+Contrary to most of the nonsense conversations I have on a daily basis, this one presented a reasonable opportunity to delve into. Nostalgia took me back to 2008-2010 (I know what you are thinking!), during my last years of high school. We had the tradition of playing *BINGO* during the school anniversary festivities. Vividly recall the day when I thought I had won a smaller prize with the "O" pattern: only to realize I had one mistake, unfortunately. 
 {: .text-justify}
 
 <center>
@@ -19,13 +19,23 @@ Contrary to most of the nonsense conversations I have in a daily basis, this one
 
  <br/><br/>
 
-Despite I never won myself the maximum prize (around $2000), attributed to the first player completing the whole board, I witness the excitement of lucky people walking among a big crowd towards the presenter to verify their victory. The following question appeared in my mind, among those memories, how difficult was *actually* to win, afterall? Was it a worthy investment? Was it *actually* easier to win forming the "N" pattern? Ergo, this post.
+Despite I never won myself the maximum prize (around $2000), attributed to the first player completing the whole board, I witness the excitement of lucky people walking among a big crowd towards the presenter to verify their victory. Among those memories, the following questions appeared in my mind: How difficult was *actually* to win, afterall? Is it a worthy investment? Is it *actually* easier to win forming the "N" pattern? Ergo, this post.
 {: .text-justify}
+
 
 ## Game Description
 
-[TODO]
+The [U.S. 75-ball bingo game](https://en.wikipedia.org/wiki/Bingo_(American_version)) consists of disposable paper cardboards which contain a unique combination of 25 numbers on squares arranged in five vertical columns (corresponding to each of the BINGO letters) and five side to side rows. Each space is covered except the center one, which is free space. The range of printed numbers that can appear on any order on the card is restricted by column. In particular, the column 'B' only contains numbers between 1 and 15 inclusive, the column 'I' only contains numbers between 16 and 30 inclusive, and so on.
+{: .text-justify}
 
+Each of the 75 possible numbers is randomly drawn by a presenter of the game, while each player marks the announced number down on their BINGO card, until a winner is revealed within the audience. The most common winning scenario is a full cover pattern. That is, when each of the 24 numbers is marked on a cardboard, its owner can claim BINGO. This is usually assigned to the highest prize of the event. Other winning scenarios consist of forming particular patterns of marked cells in the board. For example, forming a letter 'O' with a fraction of the marked cells. That would require all the numbers in the columns 'B' and 'O', as well as the first and last elements of each column, to be marked as the picture below shows. 
+{: .text-justify}
+
+<center>
+<div class="img_row" style="height: 450px;width: 350px">
+    <img class="col three" src="{{ site.baseurl }}/assets/img/bingoO.png" alt="" title="Bingo Board - O pattern Win"/>
+</div>
+</center>
 
 ## Analysis 
 
@@ -103,9 +113,9 @@ However, in the most realistic BINGO setting we have a huge crowd ($$N\sim 1000$
 | N   | 70.15        | 43.56       |
 
 
-Finally, this analysis leads to another open question for the curious reader: **what would be the 'optimal' way of assigning the prize's values given our probabilistic findings?** 
+Finally, this analysis leads to another open question for the curious reader: **what would be the 'optimal' way of assigning the prizes' values given our probabilistic findings?** 
 
-I am confident that my high school's organizers did not think this through or did the math. Since  $$\mathcal{N}, \mathcal{O}$$ and even $$\mathcal{B}$$ were given kitchen appliances or TVs as prizes, while full cover win was rewarded with the highest prize of 2000 dollars, for a 3 dollar priced BINGO board.
+I am confident that my high school BINGO's organizers did not think this thoroughly nor did the math. Since  $$\mathcal{N}, \mathcal{O}$$ and even $$\mathcal{B}$$ were given kitchen appliances or TVs as prizes, while the full cover win was rewarded with the highest prize of 2000 dollars, for a 3 dollar BINGO board.
 {: .text-justify}
 
 ## References
