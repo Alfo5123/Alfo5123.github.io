@@ -8,7 +8,7 @@ categories: idea
 hidden: true
 ---
 
-Contrary to most of the nonsense conversations I have on a daily basis, this one presented a reasonable opportunity to delve into. Nostalgia took me back to 2008-2010 (I know what you are thinking!), during my last years of high school. We had the tradition of playing *BINGO* during the school anniversary festivities. Vividly recall the day when I thought I had won a smaller prize with the "O" pattern: only to realize I had one mistake, unfortunately. 
+Contrary to most of the nonsense conversations I have on a daily basis, this one presented a reasonable opportunity to delve into. Nostalgia took me back to 2008-2010 (I know what you are thinking!), during my last years of high school. We had the tradition of playing BINGO during the school anniversary festivities. Vividly recall the day when I thought I had won a smaller prize with the "O" pattern: only to realize I had one mistake, unfortunately. 
 {: .text-justify}
 
 <center>
@@ -125,5 +125,5 @@ I am confident that my high school BINGO's organizers did not think this thoroug
 
 ### Acknowlegdments 
 
-Thanks to Maximilian Montserrat for engaging conversations and running the numerical calculations code to verify results.
+Thanks to Maximilian Montserrat for engaging conversations and running the [numerical calculations code](https://drive.google.com/file/d/1lVfQ0PwOTuTlsb2_zh-NztbyeSy_u_zg/view?usp=sharing) to verify results.
 {: .text-justify}
