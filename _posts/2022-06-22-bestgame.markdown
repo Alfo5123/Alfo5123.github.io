@@ -1,0 +1,13 @@
+---
+layout: post
+title: Best Game
+date: 2022-06-22 11:12:00-0400
+description: Lucky day
+tags: chess
+categories: idea
+hidden: true
+---
+
+An ongoing effort to improve my bullet chess skills lead me to play one of the best games in my life (reported accuracy of $$93.3\%$$, estimated performance of 2000 ELO). It worths noting that part of the credit goes to my opponent who made a blunder on move 6. After it, the game takes a straighforward approach to exchange as many pieces as possible until move 28, when a possibility of a perpetual check appeared for my opponent. It was then when I had to think for a while and come up with some escape route for the king. Kg1 was the key of success. Sometimes exposing the king and moving it towards the center of the board,  altough counterintuitive, might lead to a winning position where the opponent runs out of checks.  The big lesson here was to force as many exchanges as possible whenever a material advantage is consolidated early in the game. But yes, ultimately, I got lucky :D
+{: .text-justify} 
+<iframe id="10728951" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=10728951"></iframe><script>window.addEventListener("message",e=>{e['data']&&"10728951"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
