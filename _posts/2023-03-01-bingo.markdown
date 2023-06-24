@@ -2,7 +2,7 @@
 layout: post
 title: Bingo
 date: 2023-03-01 11:12:00-0400
-description: When luck meets probability
+description: Luck meets probability
 tags: math 
 categories: idea
 hidden: true
