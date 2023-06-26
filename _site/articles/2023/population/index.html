@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title> | Population Growth</title>
+  <title> | Population growth</title>
   <meta name="description" content="Personal website.
 ">
 
@@ -112,12 +112,12 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Population Growth</h1>
+    <h1 class="post-title">Population growth</h1>
     <p class="post-meta">June 23, 2023</p>
     <p class="post-meta"> Reading Time ~ 
   
   
-    1 min
+    5 mins
   
 
 
@@ -128,19 +128,76 @@
     <p>Recently I  came across the following quantitative question:</p>
 
 <blockquote class="text-justify">
-  <p>A mythical city contains \(100,000\) married couples but no children. Each family wishes to “continue the male line”, but they do not wish to overpopulate. So, each family has one baby per annum until the arrival of the first boy. For example, if (at some future date) a family has five children, then it must be either that they are all girls, and another child is planned, or that there are four girls and one boy, and no more children are planned. Assume that the children are equally likely to be born male or female. 
+  <p>A mythical city contains \(100,000\) monogamously married couples but no children. Each family wishes to “continue the male line”, but they do not wish to overpopulate. So, each family has one baby per annum until the arrival of the first boy. For example, if (at some future date) a family has five children, then it must be either that they are all girls, and another child is planned, or that there are four girls and one boy, and no more children are planned. Assume that the children are equally likely to be born male or female. 
 Let \(p(t)\) be the percentage of <strong>children</strong> that are male at the end of year \(t\).  How is this percentage expected to evolve through time?</p>
 </blockquote>
 
-<p>At this point, the ambitious reader should not avoid spoilers and take a few minutes to try to solve it without using a piece of paper for calculations (ideally).</p>
+<p class="text-justify">At this point, the ambitious reader should not avoid spoilers and take a few minutes to try to solve it without using a piece of paper for calculations (ideally). If you do any mathematics whatsoever, you probably are missing the point.</p>
+
+<p>A few additional assumptions, if unclear:</p>
+
+<ul>
+  <li>Consider that no person in the city dies.</li>
+  <li>The kids will not become parents themselves during the time horizon of the analysis.</li>
+  <li>The marriages remain fixed.</li>
+</ul>
 
 <h2 id="naive-intuition">Naive Intuition</h2>
 
 <h2 id="simulation">Simulation</h2>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">## Simulation code [TODO]</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Repeat experiment multiple times
+</span><span class="n">tries</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tries</span><span class="p">):</span>
+  <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">()</span>
+  <span class="n">available_couples</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># Couples who did not have a boy yet
+</span>  <span class="n">male_cumulative</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Cumulative male children per year
+</span>  <span class="n">female_cumulative</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Cumulative female children per year
+</span>  <span class="n">ratio</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">]</span>
+  <span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  
+  <span class="c1"># Run growth simulation for a fixed time horizon
+</span>  <span class="n">total_years</span> <span class="o">=</span> <span class="mi">30</span> 
+  <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_years</span><span class="p">):</span>
+    <span class="n">years</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">available_couples</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">male_children</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">female_children</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">male_children</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">available_couples</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+      <span class="n">female_children</span> <span class="o">=</span> <span class="n">available_couples</span> <span class="o">-</span> <span class="n">male_children</span> 
+      <span class="n">available_couples</span> <span class="o">-=</span> <span class="n">male_children</span>
+
+    <span class="n">male_cumulative</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">male_children</span> <span class="o">+</span> <span class="n">male_cumulative</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">female_cumulative</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">female_children</span> <span class="o">+</span> <span class="n">female_cumulative</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ratio</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">male_cumulative</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">male_cumulative</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">female_cumulative</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+  <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'g'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="p">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">years</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'years'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Male Children Ratio'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Expected Ratio over Time'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span></code></pre></figure>
+
+<center>
+<div class="img_row" style="height: 500px;width: 900px">
+    <img class="col three" src="/assets/img/population_growth_simulation.png" alt="" title="Turnstyle" />
+</div>
+</center>
+
+<blockquote>
+  <p>So, what went wrong?!</p>
+</blockquote>
 
 <h2 id="analysis">Analysis</h2>
+<p>The key word in the problem statement is <strong>expected</strong>.</p>
 
 <h2 id="references">References</h2>
 
@@ -149,7 +206,7 @@ Let \(p(t)\) be the percentage of <strong>children</strong> that are male at the
 </ul>
 
 <h2 id="acknowledgment">Acknowledgment</h2>
-<p>Thanks to Brigitte Castañeda for the constructive feedback.</p>
+<p>Thanks to Brigitte Castañeda and Aleksandra Galitsyna for the constructive feedback and hightling a few clarifications on the problem statement.</p>
 
   </article>
 
