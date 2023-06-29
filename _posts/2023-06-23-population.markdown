@@ -107,6 +107,7 @@ It is very easy to have the wrong intuition about simple statistical concepts, e
 
 * [Geometric Distribution Wikipedia article](https://en.wikipedia.org/wiki/Geometric_distribution)
 * [Blog post: "Laypeople Cannot Decide for Themselves](https://50percentofcapacity.blogspot.com/2012/02/laymen-cannot-decide-for-themselves.html?m=1&fbclid=IwAR3kQgtccRxR5ux_5IaZdNH0Kry6q_Xs5oWShClrU8mx_uUDaIlHdkLvMV0)
+
 ## Acknowledgment
 Thanks to Brigitte Castañeda and Aleksandra Galitsyna for the constructive feedback and hightling a few clarifications on the problem statement.
 {: .text-justify} 
