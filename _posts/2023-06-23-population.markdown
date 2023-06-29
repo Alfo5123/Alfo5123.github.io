@@ -26,7 +26,8 @@ A few additional assumptions, if unclear:
 
 ## Naive Intuition
 
-
+When we consider a short time horizon, we can easily imagine large families that have many daughters and a single son, thus there must be more girls than boys. Additionally, at a longer time horizon, most families would be expected to have a boy and stopped having more kids. We could conclude then that the percentage of male children is small at the beginning and slowly increase over time, never exceeding $$50\%$$.
+{: .text-justify} 
 
 ## Simulation 
 {% highlight python %}
@@ -76,19 +77,36 @@ plt.show()
 
 <center>
 <div class="img_row" style="height: 500px;width: 900px">
-    <img class="col three" src="{{ site.baseurl }}/assets/img/population_growth_simulation.png" alt="" title="Turnstyle"/>
+    <img class="col three" src="{{ site.baseurl }}/assets/img/population_growth_simulation.png" alt="" title="Population growth"/>
 </div>
 </center>
 
 
-> So, what went wrong?! 
+> So, what exactly went wrong?
+
+*The number of large families is surprisingly small!*
 
 ## Analysis 
-The key word in the problem statement is **expected**.
+The key word in the problem statement is **expected**. No real calculation is needed to see that at each time step an equal number of female and male babies are expected be born. Therefore, the proportion of male and female children is expected to remain at $$50\%$$.
+{: .text-justify} 
+
+> Any doubts?
+
+Mathematical arguments must ultimately convince the reader. Let us consider the number of female children within each family as an independent random variable $$f_i$$, where $$ 1 \leq i \leq 10^5$$. By the problem statement, $$f_i$$ follows a geometric distribution with success probabiliy $$p=0.5$$. Thus, the probabiliy of having $$k$$ girls before a boy is given by $$ P(f_i = k) = (1-p)^k p $$. The mean of this distribution is given by $$\frac{1-p}{p} $$, which in our case is $$0.5$$. 
+{: .text-justify} 
+
+Finally, by linearity of expectation, we can observe that for the whole population the expected ratio of male to female children remains at $$50\%$$.
+{: .text-justify} 
+
+## Conclusion
+
+It is very easy to have the wrong intuition about simple statistical concepts, even for a person with good working knowledge of statistics. Consider the case where one needs to examine evidence and make decisions for a complex model of reality, how likely are we to have an appropiate intution? It is really key to study simplified cases to build up our intuitive reasoning. Even small tweaks into seemingly simple models can create insanely complex behaviors (e.g. [Rule 30](https://en.wikipedia.org/wiki/Rule_30)).
+{: .text-justify} 
 
 ## References
 
-* [TODO]
-
+* [Geometric Distribution Wikipedia article](https://en.wikipedia.org/wiki/Geometric_distribution)
+* [Blog post: "Laypeople Cannot Decide for Themselves](https://50percentofcapacity.blogspot.com/2012/02/laymen-cannot-decide-for-themselves.html?m=1&fbclid=IwAR3kQgtccRxR5ux_5IaZdNH0Kry6q_Xs5oWShClrU8mx_uUDaIlHdkLvMV0)
 ## Acknowledgment
 Thanks to Brigitte Castañeda and Aleksandra Galitsyna for the constructive feedback and hightling a few clarifications on the problem statement.
+{: .text-justify} 
