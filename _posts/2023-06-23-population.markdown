@@ -92,7 +92,7 @@ The key word in the problem statement is **expected**. No real calculation is ne
 
 > Any doubts?
 
-Mathematical arguments must ultimately convince the reader. Let us consider the number of female children within each family as an independent random variable $$f_i$$, where $$ 1 \leq i \leq 10^5$$. By the problem statement, $$f_i$$ follows a geometric distribution with success probabiliy $$p=0.5$$. Thus, the probabiliy of having $$k$$ girls before a boy is given by $$ P(f_i = k) = (1-p)^k p $$. The mean of this distribution is given by $$\frac{1-p}{p} $$, which in our case is $$0.5$$. 
+Mathematical arguments must ultimately convince the reader. Let us consider the number of female children within each family as an independent random variable $$f_i$$, where $$ 1 \leq i \leq 10^5$$. By the problem statement, $$f_i$$ follows a geometric distribution with success probabiliy $$p=0.5$$. Thus, the probabiliy of having $$k$$ girls before a boy is given by $$ P(f_i = k) = (1-p)^k p $$. The mean of this distribution is given by $$\frac{1-p}{p} $$, which in our case is $$1$$. In other words, in average each family will have one boy and one girl.  
 {: .text-justify} 
 
 Finally, by linearity of expectation, we can observe that for the whole population the expected ratio of male to female children remains at $$50\%$$.
@@ -106,7 +106,7 @@ It is very easy to have the wrong intuition about simple statistical concepts, e
 ## References
 
 * [Geometric Distribution Wikipedia article](https://en.wikipedia.org/wiki/Geometric_distribution)
-* [Blog post: "Laypeople Cannot Decide for Themselves](https://50percentofcapacity.blogspot.com/2012/02/laymen-cannot-decide-for-themselves.html?m=1&fbclid=IwAR3kQgtccRxR5ux_5IaZdNH0Kry6q_Xs5oWShClrU8mx_uUDaIlHdkLvMV0)
+* [Blog post: "Laypeople Cannot Decide for Themselves"](https://50percentofcapacity.blogspot.com/2012/02/laymen-cannot-decide-for-themselves.html?m=1&fbclid=IwAR3kQgtccRxR5ux_5IaZdNH0Kry6q_Xs5oWShClrU8mx_uUDaIlHdkLvMV0)
 
 ## Acknowledgment
 Thanks to Brigitte Castañeda and Aleksandra Galitsyna for the constructive feedback and hightling a few clarifications on the problem statement.
