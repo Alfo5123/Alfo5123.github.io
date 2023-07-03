@@ -103,11 +103,15 @@ Finally, by linearity of expectation, we can observe that for the whole populati
 It is very easy to have the wrong intuition about simple statistical concepts, even for a person with good working knowledge of statistics. Consider the case where one needs to examine evidence and make decisions for a complex model of reality, how likely are we to have an appropiate intution? It is really key to study simplified cases to build up our intuitive reasoning. Even small tweaks into seemingly simple models can create insanely complex behaviors (e.g. [Rule 30](https://en.wikipedia.org/wiki/Rule_30)).
 {: .text-justify} 
 
+One thing to notice is that most people tend fo focus on extreme behvior of each family, rather than the general trend of the population growth. Moreover, regardless the intention of each family to have boys (specified by the stopping rule), this only affects the size of one family, not the male ratio within the population. 
+{: .text-justify} 
+
+
 ## References
 
 * [Geometric Distribution Wikipedia article](https://en.wikipedia.org/wiki/Geometric_distribution)
 * [Blog post: "Laypeople Cannot Decide for Themselves"](https://50percentofcapacity.blogspot.com/2012/02/laymen-cannot-decide-for-themselves.html?m=1&fbclid=IwAR3kQgtccRxR5ux_5IaZdNH0Kry6q_Xs5oWShClrU8mx_uUDaIlHdkLvMV0)
 
 ## Acknowledgment
-Thanks to Brigitte Castañeda and Aleksandra Galitsyna for the constructive feedback and hightling a few clarifications on the problem statement.
+Thanks to Brigitte Castañeda, Anji Yi, John Pang, and Aleksandra Galitsyna for the constructive feedback and hightling a few clarifications on the problem statement.
 {: .text-justify} 
