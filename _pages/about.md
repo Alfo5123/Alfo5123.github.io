@@ -13,6 +13,9 @@ news: true
 social: true
 ---
 
+Welcome to my personal website/blog. Having multiple interests, I wanted to create a place to openly share some of my thoughts and small fun projects I get to work on my free time. 
+{: .text-justify}
+
 I received my MSc (with Distinction) in *Statistical Learning Theory* from [Skoltech](https://www.skoltech.ru/en/education/msc-programs/ds/slt/) and [Higher School of Economics](https://www.hse.ru/en/ma/sltheory/), supervised by [Maxim Panov](https://scholar.google.ru/citations?user=BqDhGJQAAAAJ&hl=en&oi=ao). I worked on unsupervised graph embedding as member of the [Structural Learning Group](http://strlearn.ru/).
 {: .text-justify}
 

@@ -1,9 +1,0 @@
----
-layout: post
-quote: "We only have one instinct which is to survive. But we've only got one guarantee, we won't survive. Our existence, the human experience, is a cruel prank on us."
-date: 2023-11-29 18:01:00
-author: Steve O
-categories: idea
-tags: quotes
-hidden: true
----
