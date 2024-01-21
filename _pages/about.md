@@ -13,6 +13,8 @@ news: false
 social: true
 ---
 
+&nbsp;
+
 Welcome to my personal website/blog. Having multiple interests, I wanted to create a place to openly share some of my thoughts and small fun projects I get to work on my free time. 
 {: .text-justify}
 <!---
