@@ -1,0 +1,9 @@
+---
+layout: post
+quote: "Lo malo está más cerca de lo bueno que lo mediocre."
+date: 2024-01-19 18:01:00
+author: Juan Ramón Jiménez
+categories: idea
+tags: quotes
+hidden: true
+---
