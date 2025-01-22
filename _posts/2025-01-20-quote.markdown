@@ -1,0 +1,9 @@
+---
+layout: post
+quote: "People who think they know everything are a great annoyance to those of us who do"
+date: 2024-01-20 18:01:00
+author: Isaac Asimov
+categories: idea
+tags: quotes
+hidden: true
+---

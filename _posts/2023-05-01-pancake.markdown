@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Pancake
-date: 2023-05-01 11:12:00-0400
+date: 2025-01-18 11:12:00-0400
 description: Sorting to the extreme 
 tags: programming
 categories: idea
 hidden: true
 ---
 
-[TODO]
+Which word comes to your mind when you hear the name 'Bill Gates'? With hery high changes, *pancake* is not one of them. Yet, academia shows the opposite. 
