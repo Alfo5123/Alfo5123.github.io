@@ -3,7 +3,7 @@ layout: post
 title: Population growth
 date: 2023-06-23 11:12:00-0400
 description: When intuition misfires
-tags: programming math
+tags: code math
 categories: idea
 hidden: true
 ---

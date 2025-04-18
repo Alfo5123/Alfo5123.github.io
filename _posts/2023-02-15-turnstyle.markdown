@@ -3,7 +3,7 @@ layout: post
 title: Turnstyle
 date: 2023-02-15 11:12:00-0400
 description: Permutation puzzle 
-tags: math programming
+tags: math games code
 categories: idea
 hidden: true
 ---

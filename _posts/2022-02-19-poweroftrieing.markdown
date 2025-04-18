@@ -3,7 +3,7 @@ layout: post
 title: Power of trie-ing
 date: 2022-02-19 11:12:00-0400
 description: Stubbornness meets failure.
-tags: programming 
+tags: code 
 categories: idea
 hidden: true
 ---

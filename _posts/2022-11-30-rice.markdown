@@ -3,7 +3,7 @@ layout: post
 title: Rice
 date: 2022-11-30 11:12:00-0400
 description: Nerdy cooking mode on.
-tags: programming
+tags: code math food
 categories: idea
 hidden: true
 ---

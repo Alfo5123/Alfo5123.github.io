@@ -6,7 +6,23 @@
 {% assign tag_count = tag_count | plus: site.tags[tag].size %}
 {% endfor %}
 
-<div class= "list">
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+	  const tagContainer = document.getElementById("tag-cloud");
+	  const tags = Array.from(tagContainer.children);
+	  
+	  // Shuffle the tags array
+	  for (let i = tags.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[tags[i], tags[j]] = [tags[j], tags[i]];
+	  }
+  
+	  // Re-append shuffled tags to container
+	  tags.forEach(tag => tagContainer.appendChild(tag));
+	});
+  </script>
+  
+<div class= "list" id="tag-cloud">
 	        {% for tag in all_tags %}
 		{% assign rel_tag_size = site.tags[tag].size | times: 3.0 | divided_by: tag_count | plus: 1 %}
  		<div class="item">

@@ -67,6 +67,10 @@
           
         
           
+        
+          
+        
+          
             <a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
           
         
@@ -86,8 +90,6 @@
         
           
             <a class="page-link" href="http://localhost:4000/projects/">Projects</a>
-          
-        
           
         
           
@@ -127,11 +129,42 @@
 
 
 
-<div class="list">
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+	  const tagContainer = document.getElementById("tag-cloud");
+	  const tags = Array.from(tagContainer.children);
+	  
+	  // Shuffle the tags array
+	  for (let i = tags.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[tags[i], tags[j]] = [tags[j], tags[i]];
+	  }
+  
+	  // Re-append shuffled tags to container
+	  tags.forEach(tag => tagContainer.appendChild(tag));
+	});
+  </script>
+  
+<div class="list" id="tag-cloud">
 	        
 		
  		<div class="item">
 			<a href="/ideas/chess">chess</a>
+		</div>
+		
+		
+ 		<div class="item">
+			<a href="/ideas/code">code</a>
+		</div>
+		
+		
+ 		<div class="item">
+			<a href="/ideas/food">food</a>
+		</div>
+		
+		
+ 		<div class="item">
+			<a href="/ideas/games">games</a>
 		</div>
 		
 		
@@ -152,11 +185,6 @@
 		
  		<div class="item">
 			<a href="/ideas/poetry">poetry</a>
-		</div>
-		
-		
- 		<div class="item">
-			<a href="/ideas/programming">programming</a>
 		</div>
 		
 		
