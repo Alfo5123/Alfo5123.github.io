@@ -1,0 +1,9 @@
+---
+layout: post
+quote: "In mathematics you don't understand things. You just get used to them."
+date: 2025-04-17 11:01:00
+author: Jon von Neumann
+categories: idea
+tags: quotes
+hidden: true
+---

@@ -7,4 +7,5 @@ group :jekyll_plugins do
     gem 'jemoji'
     gem "kramdown", ">= 2.3.1"
     gem 'unicode_utils'
+    gem "webrick", "~> 1.7"
 end
