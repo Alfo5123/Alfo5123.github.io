@@ -119,7 +119,7 @@
     <p class="post-meta"> Reading Time ~ 
   
   
-    9 mins
+    20 mins
   
 
 
@@ -127,7 +127,7 @@
   </header>
 
   <article class="post-content">
-    <p class="text-justify">It is impossible to not embrace nostalgic days using a Pentium 4 PC. My first exposure to a computer game was minesweeper. Although the mysterious board full of squares and digits looks intimidating,</p>
+    <p class="text-justify">It is impossible to not embrace nostalgic days using a Pentium 4 PC. My first exposure to a computer game was minesweeper. Although the mysterious board full of squares and digits looks intimidating, the game is way more straighforward than it seems.</p>
 
 <center>
 <div class="img_row" style="height: 250px;width: 200px">
@@ -136,129 +136,239 @@
 </center>
 
 <h2 id="game-description">Game Description</h2>
+<p class="text-justify">The goal of the game is to clear the grid of squares without detonating any hidden mines. For that purpose, we click on a square to reveal it; if its a mine, the game is over, and if its a number, it represents how many mines are within the eight (or possibly less) surrounding squares. We should analytical use this information to flag (right click) and unconver squares that we have the certainty are safe. Once all non-mine squares are revealed the game is won.</p>
 
-<p class="text-justify">[TODO]</p>
+<p class="text-justify">Ok then, let’s play! But wait: where do we click first? In order to protect gamers’ mental health, classic minewsweeper makes sure the first click is always safe and it opens a flood-fill region of zeroes if possible. A simple way to implement this is by setting mine placement process right after the first click position is determined. Moreover, once the first click happens, a local empty region usually opens up. Evidently, the bigger the area cleared out, we can use purely logic to uncover most of the board, requiring fewer guesses and higher win chance.</p>
 
-<p>I would like to encourage readers to estimate <strong>how likely are we expected to win?</strong> That is, assuming perfect play, could we get an estimate of chances to</p>
+<p class="text-justify">Naturally, this led me to question <strong>how likely are we expected to win?</strong> That is, assuming perfect play, could we get an estimate of winning chances given random boards. Let us consider due to computational constraints, the smallest minesweeper size:</p>
 
-<p>Minesweeper games typically avoid this by guaranteeing a safe initial move. Estimated probability of winning with perfect play: 87.62%.  10/81 (~12.35%)</p>
-
-<h2 id="simulation-code">Simulation Code</h2>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-
-<span class="c1"># Game parameters
-</span><span class="n">GRID_SIZE</span> <span class="o">=</span> <span class="mi">9</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Game parameters
+</span><span class="n">GRID_SIZE</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">MINES</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">SIMULATIONS</span> <span class="o">=</span> <span class="mi">1000</span>
-
+<span class="n">SIMULATIONS</span> <span class="o">=</span> <span class="mi">100000</span> <span class="c1"># 100K
+</span>
 <span class="c1"># Directions to check neighbors
-</span><span class="n">directions</span> <span class="o">=</span> <span class="p">[(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span> <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">dx</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">dy</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
+</span><span class="n">directions</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+              <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="p">]</span></code></pre></figure>
 
-<span class="c1"># Utility functions
-</span><span class="k">def</span> <span class="nf">in_grid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<p>As described above, we require as input the first move coordiantes, in order to randomly sample the location of the mines. Moreover, our experiments include <code class="language-plaintext highlighter-rouge">safe_zone_radius</code> as a parameter to flood-fill surrounding symmetric safe area around the first click.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">in_grid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">GRID_SIZE</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">GRID_SIZE</span>
 
-<span class="k">def</span> <span class="nf">place_mines</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">place_mines</span><span class="p">(</span><span class="n">first_move</span><span class="p">,</span> <span class="n">safe_zone_radius</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="s">"""
+    Place mines randomly, but guarantee that the 3x3 region around first_move
+    (for radius=1) has NO mines. This ensures the first click is zero and
+    reveals a flood-fill region, like typical Minesweeper.
+    """</span>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">GRID_SIZE</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">all_cells</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)]</span>
-    <span class="n">mine_positions</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_cells</span><span class="p">),</span> <span class="n">MINES</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">mine_positions</span><span class="p">:</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">all_cells</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
-        <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">directions</span><span class="p">:</span>
-            <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span>
-            <span class="k">if</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-                <span class="n">grid</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">grid</span>
+    <span class="n">fx</span><span class="p">,</span> <span class="n">fy</span> <span class="o">=</span> <span class="n">first_move</span>
 
-<span class="k">def</span> <span class="nf">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">revealed</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="ow">or</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+    <span class="c1"># Cells where we are not allowed to place mines (safe zone)
+</span>    <span class="n">forbidden</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">(</span><span class="n">fx</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">fy</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">safe_zone_radius</span><span class="p">,</span> <span class="n">safe_zone_radius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">safe_zone_radius</span><span class="p">,</span> <span class="n">safe_zone_radius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">fx</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">fy</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">all_cells</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)]</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="p">[</span><span class="n">cell</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">all_cells</span> <span class="k">if</span> <span class="n">cell</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">forbidden</span><span class="p">]</span>
+
+    <span class="n">mine_positions</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">available</span><span class="p">),</span> <span class="n">MINES</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">mine_positions</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">available</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+        <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="c1"># Compute neighbor counts
+</span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">directions</span><span class="p">:</span>
+                <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span>
+                <span class="k">if</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+
+    <span class="k">return</span> <span class="n">grid</span></code></pre></figure>
+
+<p>Ultimately, we define the solver routine. Nothing fancy here. One function that uses a recursive flood-fill approach to reveal as much cells as possible, once a click has done and its not a mine; and our main solver which uses the game rules until the point where we need to make another random click to guess next safe location.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="s">"""
+    Reveal cell (x, y). Flood-fill if it's a 0.
+    We assume the caller has already checked that (x, y) is not a mine
+    when this matters (e.g., guesses). We *don't* reveal flagged cells.
+    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="k">return</span>
-    <span class="n">revealed</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">revealed</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="ow">or</span> <span class="n">flagged</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]:</span>
+        <span class="k">return</span>
+
+    <span class="n">revealed</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">directions</span><span class="p">:</span>
             <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span>
-            <span class="k">if</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">revealed</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]:</span>
-                <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">revealed</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">flagged</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]:</span>
+                <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">simulate_game</span><span class="p">():</span>
     <span class="n">revealed</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">GRID_SIZE</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-    <span class="n">grid</span> <span class="o">=</span> <span class="n">place_mines</span><span class="p">()</span>
+    <span class="n">flagged</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">GRID_SIZE</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
-    <span class="n">first_move</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">first_move</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">first_move</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">False</span>
+    <span class="c1"># Choose a random first move
+</span>    <span class="n">first_move</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">))</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">place_mines</span><span class="p">(</span><span class="n">first_move</span><span class="o">=</span><span class="n">first_move</span><span class="p">,</span> <span class="n">safe_zone_radius</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="o">*</span><span class="n">first_move</span><span class="p">)</span>
+    <span class="c1"># With a safe zone, the first move should never be a mine
+</span>    <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">first_move</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Shouldn't happen, but let's be defensive.
+</span>        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="c1"># Reveal the first move (should be 0, so this opens a region)
+</span>    <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="o">*</span><span class="n">first_move</span><span class="p">)</span>
 
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">progress</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">revealed</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">neighbors</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">)</span> <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">directions</span> <span class="k">if</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">)]</span>
-                    <span class="n">unrevealed</span> <span class="o">=</span> <span class="p">[(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="k">for</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="ow">in</span> <span class="n">neighbors</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">revealed</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]]</span>
-                    <span class="n">flagged</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="ow">in</span> <span class="n">unrevealed</span><span class="p">)</span>
 
-                    <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="n">flagged</span> <span class="ow">and</span> <span class="n">unrevealed</span><span class="p">:</span>
-                        <span class="k">for</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="ow">in</span> <span class="n">unrevealed</span><span class="p">:</span>
-                            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-                                <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
-                                <span class="n">progress</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="c1"># Apply local logical rules repeatedly:
+</span>        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">revealed</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]:</span>
+                    <span class="k">continue</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># Skip 0s and (hypothetical) revealed mines
+</span>                    <span class="k">continue</span>
+
+                <span class="n">neighbors</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">directions</span>
+                    <span class="k">if</span> <span class="n">in_grid</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span>
+                <span class="p">]</span>
+
+                <span class="n">hidden</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">in</span> <span class="n">neighbors</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">revealed</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">flagged</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]</span>
+                <span class="p">]</span>
+                <span class="n">flagged_neighbors</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">in</span> <span class="n">neighbors</span>
+                    <span class="k">if</span> <span class="n">flagged</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]</span>
+                <span class="p">]</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">hidden</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="n">F</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">flagged_neighbors</span><span class="p">)</span>
+                <span class="n">H</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hidden</span><span class="p">)</span>
+
+                <span class="c1"># Rule 1: All remaining mines already flagged -&gt; hidden are safe
+</span>                <span class="k">if</span> <span class="n">F</span> <span class="o">==</span> <span class="n">val</span> <span class="ow">and</span> <span class="n">H</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">in</span> <span class="n">hidden</span><span class="p">:</span>
+                        <span class="c1"># We decide logically they're safe; if grid says otherwise, we lose.
+</span>                        <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="bp">False</span>
+                        <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+                        <span class="n">progress</span> <span class="o">=</span> <span class="bp">True</span>
+
+                <span class="c1"># Rule 2: All hidden neighbors must be mines -&gt; flag them
+</span>                <span class="k">elif</span> <span class="n">H</span> <span class="o">==</span> <span class="n">val</span> <span class="o">-</span> <span class="n">F</span> <span class="ow">and</span> <span class="n">H</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="ow">in</span> <span class="n">hidden</span><span class="p">:</span>
+                        <span class="n">flagged</span><span class="p">[</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="n">progress</span> <span class="o">=</span> <span class="bp">True</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">progress</span><span class="p">:</span>
-            <span class="n">unrevealed_cells</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">revealed</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]]</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">unrevealed_cells</span><span class="p">:</span>
+            <span class="c1"># No more logical moves. Check if we've already won.
+</span>            <span class="c1"># Win condition: all non-mine cells revealed.
+</span>            <span class="k">if</span> <span class="n">np</span><span class="p">.</span><span class="nb">all</span><span class="p">((</span><span class="n">grid</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="n">revealed</span><span class="p">):</span>
                 <span class="k">return</span> <span class="bp">True</span>
 
-            <span class="n">guess</span> <span class="o">=</span> <span class="n">unrevealed_cells</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">unrevealed_cells</span><span class="p">))]</span>
-            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">guess</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">guess</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># Need to guess: pick a random hidden, unflagged cell.
+</span>            <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">revealed</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">flagged</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="p">]</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">candidates</span><span class="p">:</span>
+                <span class="c1"># No candidates but not all safe cells revealed -&gt; something inconsistent.
+</span>                <span class="k">return</span> <span class="bp">False</span>
+
+            <span class="n">gx</span><span class="p">,</span> <span class="n">gy</span> <span class="o">=</span> <span class="n">candidates</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">))]</span>
+
+            <span class="c1"># uess outcome: if it's a mine, we lose; otherwise reveal it.
+</span>            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">gx</span><span class="p">,</span> <span class="n">gy</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">False</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="o">*</span><span class="n">guess</span><span class="p">)</span>
+            <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">gx</span><span class="p">,</span> <span class="n">gy</span><span class="p">)</span></code></pre></figure>
 
-<span class="c1"># Simulation
-</span><span class="k">def</span> <span class="nf">calculate_probability</span><span class="p">(</span><span class="n">simulations</span><span class="o">=</span><span class="n">SIMULATIONS</span><span class="p">):</span>
-    <span class="n">wins</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">simulate_game</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">simulations</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">wins</span> <span class="o">/</span> <span class="n">simulations</span>
+<h1 id="simulation-results">Simulation Results</h1>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">win_probability</span> <span class="o">=</span> <span class="n">calculate_probability</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Estimated probability of winning with perfect play: </span><span class="si">{</span><span class="n">win_probability</span><span class="p">:.</span><span class="mi">2</span><span class="o">%</span><span class="si">}</span><span class="s">"</span><span class="p">)</span></code></pre></figure>
+<p>After running the results with 100K instances (10 times) results converge to the following:</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Pattern</th>
-      <th style="text-align: center">Expected Draws To Win - 1 player</th>
-      <th style="text-align: center">Expected Draws To Win - 1k players</th>
+      <th style="text-align: center">Safe Zone Radius</th>
+      <th style="text-align: center">Winning Prob</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">Full Cover</td>
-      <td style="text-align: center">72.96</td>
-      <td style="text-align: center">58.79</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">91.85 +/- 0.10</td>
     </tr>
     <tr>
-      <td style="text-align: center">B</td>
-      <td style="text-align: center">72.00</td>
-      <td style="text-align: center">53.16</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">90.73 +/- 0.09</td>
     </tr>
     <tr>
-      <td style="text-align: center">O</td>
-      <td style="text-align: center">71.52</td>
-      <td style="text-align: center">50.56</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">86.79 +/- 0.12</td>
     </tr>
     <tr>
-      <td style="text-align: center">N</td>
-      <td style="text-align: center">70.15</td>
-      <td style="text-align: center">43.56</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">79.62 +/- 0.14</td>
     </tr>
   </tbody>
 </table>
+
+<p>When I first encountered these results, I couldn’t help but smile.</p>
+
+<p>Consider <code class="language-plaintext highlighter-rouge">safe_zone_radius</code>=3, we would get a board like the one below, where at most 51 cells are available to randomly place 10 mines.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 <span class="c"># # # #</span>
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 1 2 <span class="c"># #</span>
+<span class="nb">.</span> <span class="nb">.</span> F <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 2 <span class="c"># #</span>
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 2 <span class="c"># #</span>
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 3 <span class="c"># #</span>
+1 1 1 1 1 1 1 <span class="c"># # #</span>
+<span class="c"># # # # # # # # # #</span>
+<span class="c"># # # # # # # # # #</span>
+<span class="c"># # # # # # # # # #</span>
+<span class="c"># # # # # # # # # #</span></code></pre></figure>
+
+<p>with the corresponding revealed pattern,</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 <span class="k">*</span> 2 1 1
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 1 2 <span class="k">*</span> 1
+<span class="nb">.</span> <span class="nb">.</span> F <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 2 2 2
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 2 <span class="k">*</span> 2
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 3 <span class="k">*</span> 2
+1 1 1 1 1 1 1 <span class="k">*</span> 2 1
+1 <span class="k">*</span> 1 2 <span class="k">*</span> 2 1 1 1 <span class="nb">.</span>
+1 1 1 2 <span class="k">*</span> 2 <span class="nb">.</span> 1 1 1
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 1 1 <span class="nb">.</span> 1 <span class="k">*</span> 2
+<span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span> 1 2 <span class="k">*</span></code></pre></figure>
+
+<p class="text-justify">We could boldy assume that larger zero-flood region should help solve Mineswepper, thus increasing the win rate. However, a bigger safe zone, also forces all mines into smaller, denser and more awkwardly-placed mine regions, which might lead to ambiguity cases where we need to simply guess. I just happen to love when experimental evidence constrasts initial intuition.</p>
 
 <h2 id="references">References</h2>
 
