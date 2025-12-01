@@ -195,7 +195,7 @@ def simulate_game():
 
             gx, gy = candidates[np.random.randint(len(candidates))]
 
-            # uess outcome: if it's a mine, we lose; otherwise reveal it.
+            # Guess outcome: if it's a mine, we lose; otherwise reveal it.
             if grid[gx, gy] == -1:
                 return False
             reveal(grid, revealed, flagged, gx, gy)
@@ -203,7 +203,7 @@ def simulate_game():
 
 # Simulation Results
 
-After running the results with 100K instances (10 times) results converge to the following:
+After running the results with 100K instances (10 times) we obtain,
 
 | -----------  | ----------- |
 | Safe Zone Radius    | Winning Prob| 

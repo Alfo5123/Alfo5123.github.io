@@ -304,14 +304,14 @@
 
             <span class="n">gx</span><span class="p">,</span> <span class="n">gy</span> <span class="o">=</span> <span class="n">candidates</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">))]</span>
 
-            <span class="c1"># uess outcome: if it's a mine, we lose; otherwise reveal it.
+            <span class="c1"># Guess outcome: if it's a mine, we lose; otherwise reveal it.
 </span>            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">gx</span><span class="p">,</span> <span class="n">gy</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">False</span>
             <span class="n">reveal</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">revealed</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">gx</span><span class="p">,</span> <span class="n">gy</span><span class="p">)</span></code></pre></figure>
 
 <h1 id="simulation-results">Simulation Results</h1>
 
-<p>After running the results with 100K instances (10 times) results converge to the following:</p>
+<p>After running the results with 100K instances (10 times) we obtain,</p>
 
 <table>
   <thead>
