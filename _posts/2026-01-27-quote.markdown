@@ -1,0 +1,9 @@
+---
+layout: post
+quote: "Nunca perseguí la gloria, ni dejar en la memoria de los hombres mi canción; yo amo los mundos sutiles, ingrávidos y gentiles, como pompas de jabón."
+date: 2026-01-27 18:01:00
+author: Antonio Machado
+categories: idea
+tags: quotes
+hidden: true
+---
