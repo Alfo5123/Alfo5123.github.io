@@ -1,4 +1,4 @@
-.list { display: -webkit-flex; display: flex; -webkit-flex-flow: row wrap; flex-flow: row wrap; }
+.list { display: -webkit-flex; display: flex; -webkit-flex-flow: row wrap; flex-flow: row wrap; justify-content: center; gap: 0.45rem; }
 
 .item:nth-child(12n+1) { background-color: #b9e8fd; border-radius: 3px; margin: 5px; }
 
@@ -24,10 +24,12 @@
 
 .item:nth-child(12n+12) { background-color: #62cd0f; border-radius: 3px; margin: 5px; }
 
-.item { -webkit-flex: 1 auto; flex: 1 auto; padding: 0.8rem; text-align: center; transition: all 300ms ease-in-out; }
+.item { -webkit-flex: 1 auto; flex: 1 auto; min-width: 120px; padding: 0.8rem; text-align: center; transition: all 300ms ease-in-out; }
 
-.item a { display: block; font-size: 1.2em; text-decoration: none; padding: 0.5rem 1rem; border-radius: 3px; color: #000; }
+.item a { display: block; font-size: clamp(0.95rem, 2.8vw, 1.15rem); text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; color: #000; }
 
 .item a:hover { text-decoration: none; }
 
 .item:hover { background-color: #fff; }
+
+@media screen and (max-width: 600px) { .item { min-width: calc(50% - 0.5rem); margin: 0; } }
