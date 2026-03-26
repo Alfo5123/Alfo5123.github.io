@@ -8,4 +8,9 @@ categories: idea
 hidden: true
 ---
 
-Which word comes to your mind when you hear the name 'Bill Gates'? With hery high changes, *pancake* is not one of them. Yet, academia shows the opposite. 
+What is the first word that comes to your mind when you hear the name 'Bill Gates'? With very high changes, *pancake* is not one of them. Yet, academia shows enough [evidence](https://www.npr.org/2008/07/04/92236781/before-microsoft-gates-solved-a-pancake-problem). 
+{: .text-justify}
+
+[Pancake sorting](https://en.wikipedia.org/wiki/Pancake_sorting) is a mathematical problem of sorting a stack of pancakes in order of size using exclusively flip operations (i.e., reversal of top $$k$$ pancakes on the stack). In particular, the *pancake number* is the minimum number of flips required to sort a given number of pancakes. It has been proven that the pancake number to sort **any** stack of $$n$$ pancakes
+{: .text-justify}
+
