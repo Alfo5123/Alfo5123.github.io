@@ -25,10 +25,10 @@ In an odd twist of events, after my Bachelor graduation and a subsequent reveali
 Stephen Wolfram, who you perhaps may recognize from his  <a href="https://www.ted.com/talks/stephen_wolfram_computing_a_theory_of_everything/transcript?language=en" target="blank">famous TED talk</a> is the ambitious mind behind the company. It's unavoidable to hear some astonishing facts around your boss, specially when you know he published scientific papers on particle physics at the age of 15 and defended his PhD at 20, with Richard Feynman(!) on the thesis committee. Thus, it was a big surprise for our office, when he announced his trip to Peru to attend a conference and meet each member of the team personally. 
 {: .text-justify}
 
-<div class="img_row center">
+<div class="img_row post-figure" style="--post-figure-max-width: 470px;">
     <img src="{{ site.baseurl }}/assets/img/stephen_wolfram.png">
 </div>
-<div class="col three caption">
+<div class="caption post-figure-caption" style="--post-figure-max-width: 470px;">
     Stephen showing off. 
 </div>
 
@@ -45,4 +45,3 @@ Once Michelangelo said <i>'genius is eternal patience'</i>; this phrase never ma
 </ul>
 
 ***
-

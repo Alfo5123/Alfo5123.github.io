@@ -41,6 +41,93 @@
 }
 
 .post-content {
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .post-figure {
+    --post-figure-max-width: 100%;
+
+    width: min(100%, var(--post-figure-max-width));
+    max-width: 100%;
+    height: auto;
+    margin: clamp(1rem, 3vw, 1.5rem) auto;
+    overflow: visible;
+  }
+
+  .post-figure > img,
+  .post-figure > .col {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    float: none;
+    margin: 0 auto;
+    object-fit: contain;
+    padding: 0;
+  }
+
+  .post-figure + .caption {
+    height: auto;
+    float: none;
+    margin: -0.25rem auto 1.5rem;
+    padding: 0;
+  }
+
+  .post-figure-caption {
+    width: min(100%, var(--post-figure-max-width));
+    height: auto;
+    float: none;
+    margin: -0.25rem auto 1.5rem;
+    padding: 0;
+  }
+
+  .post-gallery {
+    --post-gallery-max-width: 100%;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(0.5rem, 2vw, 0.9rem);
+    width: min(100%, var(--post-gallery-max-width));
+    max-width: 100%;
+    height: auto;
+    margin: clamp(1rem, 3vw, 1.5rem) auto;
+    overflow: visible;
+  }
+
+  .post-gallery > img,
+  .post-gallery > .col {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    float: none;
+    margin: 0;
+    object-fit: contain;
+    padding: 0;
+    align-self: start;
+  }
+
+  .post-gallery-caption {
+    width: min(100%, var(--post-gallery-max-width));
+    height: auto;
+    float: none;
+    margin: -0.25rem auto 1.5rem;
+    padding: 0;
+  }
+
+  @media screen and (min-width: $viewport-small) {
+    .post-gallery-pair {
+      grid-template-columns: var(--post-gallery-columns, repeat(2, minmax(0, 1fr)));
+    }
+
+    .post-gallery-split {
+      grid-template-columns: var(--post-gallery-columns, minmax(0, 2fr) minmax(0, 1fr));
+    }
+  }
+
   h2 {
     font-size: clamp(1.55rem, 4.2vw, 2.35rem);
   }

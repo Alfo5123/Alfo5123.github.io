@@ -11,11 +11,9 @@ hidden: true
 It is impossible to not embrace nostalgic days using a Pentium 4 PC. My first exposure to a computer game was minesweeper. Although the mysterious board full of squares and digits looks intimidating, the game is way more straighforward than it seems.
 {: .text-justify}
 
-<center>
-<div class="img_row" style="height: 250px;width: 200px">
+<div class="img_row post-figure" style="--post-figure-max-width: 280px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/minesweeper.png" alt="" title="Childhood memories unblocked"/>
 </div>
-</center>
 
 
 ## Game Description

@@ -8,10 +8,10 @@ categories: idea
 hidden: true
 ---
 
-<div class="img_row">
+<div class="img_row post-figure" style="--post-figure-max-width: 700px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/guitar.jpeg" alt="" title="Guitar"/>
 </div>
-<div class="col three caption">
+<div class="caption post-figure-caption" style="--post-figure-max-width: 700px;">
     Side effects of having an amazing girlfriend. Yes, a Martin Acoustic-Electric Guitar.
 </div>
 

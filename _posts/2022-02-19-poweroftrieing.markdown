@@ -66,7 +66,7 @@ ax.bar(lenghts,num_words)
 plt.show()
 {% endhighlight %}
 
-<div class="img_row" style="height: 600px;width: 820px">
+<div class="img_row post-figure" style="--post-figure-max-width: 635px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/word_distribution.png" alt="" title="Word Distribution"/>
 </div>
 
@@ -122,7 +122,7 @@ plt.legend()
 plt.show()
 {% endhighlight %}
 
-<div class="img_row" style="height: 700px">
+<div class="img_row post-figure" style="--post-figure-max-width: 506px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/trends_trie.png" alt="" title="Guitar"/>
 </div>
 

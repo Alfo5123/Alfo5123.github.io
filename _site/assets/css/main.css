@@ -392,6 +392,16 @@ footer a:hover { color: var(--accent); }
 
 .post-description { margin: 0 0 0.9rem; font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif; font-size: clamp(1rem, 2.4vw, 1.12rem); font-weight: 500; letter-spacing: 0; line-height: 1.55; color: var(--muted); }
 
+.post-content img { display: block; height: auto; max-width: 100%; }
+.post-content .post-figure { --post-figure-max-width: 100%; width: min(100%, var(--post-figure-max-width)); max-width: 100%; height: auto; margin: clamp(1rem, 3vw, 1.5rem) auto; overflow: visible; }
+.post-content .post-figure > img, .post-content .post-figure > .col { display: block; width: 100%; max-width: 100%; height: auto; float: none; margin: 0 auto; object-fit: contain; padding: 0; }
+.post-content .post-figure + .caption { height: auto; float: none; margin: -0.25rem auto 1.5rem; padding: 0; }
+.post-content .post-figure-caption { width: min(100%, var(--post-figure-max-width)); height: auto; float: none; margin: -0.25rem auto 1.5rem; padding: 0; }
+.post-content .post-gallery { --post-gallery-max-width: 100%; display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(0.5rem, 2vw, 0.9rem); width: min(100%, var(--post-gallery-max-width)); max-width: 100%; height: auto; margin: clamp(1rem, 3vw, 1.5rem) auto; overflow: visible; }
+.post-content .post-gallery > img, .post-content .post-gallery > .col { display: block; width: 100%; max-width: 100%; height: auto; float: none; margin: 0; object-fit: contain; padding: 0; align-self: start; }
+.post-content .post-gallery-caption { width: min(100%, var(--post-gallery-max-width)); height: auto; float: none; margin: -0.25rem auto 1.5rem; padding: 0; }
+@media screen and (min-width: 32em) { .post-content .post-gallery-pair { grid-template-columns: var(--post-gallery-columns, repeat(2, minmax(0, 1fr))); }
+  .post-content .post-gallery-split { grid-template-columns: var(--post-gallery-columns, minmax(0, 2fr) minmax(0, 1fr)); } }
 .post-content h2 { font-size: clamp(1.55rem, 4.2vw, 2.35rem); }
 .post-content h3 { font-size: clamp(1.2rem, 3.2vw, 1.85rem); }
 .post-content h4 { font-size: clamp(1.05rem, 2.6vw, 1.35rem); }

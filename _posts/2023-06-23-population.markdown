@@ -75,11 +75,9 @@ plt.show()
 {% endhighlight %}
 
 
-<center>
-<div class="img_row" style="height: 500px;width: 900px">
+<div class="img_row post-figure" style="--post-figure-max-width: 863px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/population_growth_simulation.png" alt="" title="Population growth"/>
 </div>
-</center>
 
 
 > So, what exactly went wrong?

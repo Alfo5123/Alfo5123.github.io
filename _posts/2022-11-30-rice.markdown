@@ -73,7 +73,7 @@ def calculate_water (pan_diameter,
 
 We plot the results of applying our function to common sauce pan sizes and rice quantities.
 
-<div class="img_row" style="height: 650px;width: 650px">
+<div class="img_row post-figure" style="--post-figure-max-width: 599px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/asian_rice_rule.png" alt="" title="Word Distribution"/>
 </div>
 
@@ -102,13 +102,13 @@ plt.plot(x_axis, norm.pdf(x_axis, mean_knuckle_size, std_knuckle_size))
 plt.xlabel('inches')
 {% endhighlight %}
 
-<div class="img_row" style="height: 450px;width: 585px">
+<div class="img_row post-figure" style="--post-figure-max-width: 376px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/finger_size_distribution.png" alt="" title="Word Distribution"/>
 </div>
 
 We run a MonteCarlo simulation for different size of pans, finger sizes and rice cups.
 
-<div class="img_row" style="height: 600px;width: 600px">
+<div class="img_row post-figure" style="--post-figure-max-width: 609px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/asian_rice_rule_2.png" alt="" title="Word Distribution"/>
 </div>
 

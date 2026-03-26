@@ -11,11 +11,9 @@ hidden: true
 Contrary to most of the nonsense conversations I have on a daily basis, this one presented a reasonable opportunity to delve into. Nostalgia took me back to 2008-2010 (I know what you are thinking!), during my last years of high school. We had the tradition of playing BINGO during the school anniversary festivities. Vividly recall the day when I thought I had won a smaller prize with the "O" pattern: only to realize I had one mistake, unfortunately. 
 {: .text-justify}
 
-<center>
-<div class="img_row" style="height: 368px;width: 350px">
+<div class="img_row post-figure" style="--post-figure-max-width: 300px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/bingo.webp" alt="" title="Bingo Board"/>
 </div>
-</center>
 
  <br/><br/>
 
@@ -31,11 +29,9 @@ The [U.S. 75-ball bingo game](https://en.wikipedia.org/wiki/Bingo_(American_vers
 Each of the 75 possible numbers is randomly drawn by a presenter of the game, while each player marks the announced number down on their BINGO card, until a winner is revealed within the audience. The most common winning scenario is a full cover pattern. That is, when each of the 24 numbers is marked on a cardboard, its owner can claim BINGO. This is usually assigned to the highest prize of the event. Other winning scenarios consist of forming particular patterns of marked cells in the board. For example, forming a letter 'O' with a fraction of the marked cells. That would require all the numbers in the columns 'B' and 'O', as well as the first and last elements of each column, to be marked as the picture below shows. 
 {: .text-justify}
 
-<center>
-<div class="img_row" style="height: 450px;width: 350px">
+<div class="img_row post-figure" style="--post-figure-max-width: 350px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/bingoO.png" alt="" title="Bingo Board - O pattern Win"/>
 </div>
-</center>
 
 ## Analysis 
 
@@ -83,7 +79,7 @@ We can visually inspect how the cumulative distribution probabilities for the di
 {: .text-justify}
 
 
-<div class="img_row" style="height: 290px;width: 820px">
+<div class="img_row post-figure" style="--post-figure-max-width: 820px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/cumulative_dist.png" alt="" title="Cumulative Distribution"/>
 </div>
 
@@ -97,7 +93,7 @@ However, in the most realistic BINGO setting we have a huge crowd ($$N\sim 1000$
 {: .text-justify}
 
 
-<div class="img_row" style="height: 290px;width: 820px">
+<div class="img_row post-figure" style="--post-figure-max-width: 820px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/cumulative_dist_1000.png" alt="" title="Cumulative Distribution - 1000 players"/>
 </div>
 

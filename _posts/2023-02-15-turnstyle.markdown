@@ -10,11 +10,9 @@ hidden: true
 
 Naturally, a casual walk on a stimulating work environment can trigger the most prominent forms of [nerd snipping](https://xkcd.com/356/). Another addictive puzzle from the ninth floor dazzled me. Hopefully, I can share some of my curiosity with you.
 
-<center>
-<div class="img_row" style="height: 450px;width: 450px">
+<div class="img_row post-figure" style="--post-figure-max-width: 450px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/turnstyle.png" alt="" title="Turnstyle"/>
 </div>
-</center>
 
 The **[Turnstyle](https://gamewright.com/product/turnstyle)** brain teaser consists of two discs connected by a gear on the back. Allowing two types of valid moves:
 
@@ -210,11 +208,9 @@ Using our BFS traversal, the sequence of **move** operations with indices $$i=[1
 
 In addition, we can observe the log-scaled histogram of paths lengths (from 0 to 15).
 {: .text-justify} 
-<center>
-<div class="img_row" style="height: 450px;width: 450px">
+<div class="img_row post-figure" style="--post-figure-max-width: 450px;">
     <img class="col three" src="{{ site.baseurl }}/assets/img/path_lengh_distribution.png" alt="" title="Turnstyle"/>
 </div>
-</center>
 
 Out of curiosity, I wanted to finish this post by pointing one possible initial configuration that requires the biggest amounts of move operations is $$(1, 12, 11, 10, 9, 8, 6, 7, 4, 5, 2, 3)$$.
 {: .text-justify} 

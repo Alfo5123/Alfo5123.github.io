@@ -11,16 +11,16 @@
   <meta name="description" content="Personal website.
 ">
 
-  <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/articles/2023/bingo/">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/articles/2023/bingo/">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="http://localhost:4000/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 
@@ -51,16 +51,16 @@
 
       <div class="trigger">
         <!-- About -->
-        <a class="page-link" href="http://localhost:4000/">About</a>
+        <a class="page-link" href="/">About</a>
 	
 	<!-- Ideas --> 
-	<a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+	<a class="page-link" href="/ideas/">Ideas</a>
 
         <!-- Articles -->
-        <a class="page-link" href="http://localhost:4000/articles/">Articles</a>
+        <a class="page-link" href="/articles/">Articles</a>
 
 	<!-- Projects --> 
-	<a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+	<a class="page-link" href="/projects/">Projects</a>
 
         <!-- Pages 
         
@@ -73,7 +73,7 @@
           
         
           
-            <a class="page-link" href="http://localhost:4000/ideas/">Ideas</a>
+            <a class="page-link" href="/ideas/">Ideas</a>
           
         
           
@@ -91,7 +91,7 @@
           
         
           
-            <a class="page-link" href="http://localhost:4000/projects/">Projects</a>
+            <a class="page-link" href="/projects/">Projects</a>
           
         
           
@@ -131,11 +131,9 @@
   <article class="post-content">
     <p class="text-justify">Contrary to most of the nonsense conversations I have on a daily basis, this one presented a reasonable opportunity to delve into. Nostalgia took me back to 2008-2010 (I know what you are thinking!), during my last years of high school. We had the tradition of playing BINGO during the school anniversary festivities. Vividly recall the day when I thought I had won a smaller prize with the “O” pattern: only to realize I had one mistake, unfortunately.</p>
 
-<center>
-<div class="img_row" style="height: 368px;width: 350px">
+<div class="img_row post-figure" style="--post-figure-max-width: 300px;">
     <img class="col three" src="/assets/img/bingo.webp" alt="" title="Bingo Board" />
 </div>
-</center>
 
 <p><br /><br /></p>
 
@@ -147,11 +145,9 @@
 
 <p class="text-justify">Each of the 75 possible numbers is randomly drawn by a presenter of the game, while each player marks the announced number down on their BINGO card, until a winner is revealed within the audience. The most common winning scenario is a full cover pattern. That is, when each of the 24 numbers is marked on a cardboard, its owner can claim BINGO. This is usually assigned to the highest prize of the event. Other winning scenarios consist of forming particular patterns of marked cells in the board. For example, forming a letter ‘O’ with a fraction of the marked cells. That would require all the numbers in the columns ‘B’ and ‘O’, as well as the first and last elements of each column, to be marked as the picture below shows.</p>
 
-<center>
-<div class="img_row" style="height: 450px;width: 350px">
+<div class="img_row post-figure" style="--post-figure-max-width: 350px;">
     <img class="col three" src="/assets/img/bingoO.png" alt="" title="Bingo Board - O pattern Win" />
 </div>
-</center>
 
 <h2 id="analysis">Analysis</h2>
 
@@ -194,7 +190,7 @@
 
 <p class="text-justify">We can visually inspect how the cumulative distribution probabilities for the different winning cases look like. We can notice that only after \(60\) draws the chances stop being negligible. This explains why the game lasts that long without winner, even for simpler patterns.</p>
 
-<div class="img_row" style="height: 290px;width: 820px">
+<div class="img_row post-figure" style="--post-figure-max-width: 820px;">
     <img class="col three" src="/assets/img/cumulative_dist.png" alt="" title="Cumulative Distribution" />
 </div>
 
@@ -204,7 +200,7 @@
 
 <p class="text-justify">If the probability of an event happening is \(p\), then the probability that it will happen at least once in \(N\) times is \(1 - (1-p)^N\). Using this formula, we obtained the following results,</p>
 
-<div class="img_row" style="height: 290px;width: 820px">
+<div class="img_row post-figure" style="--post-figure-max-width: 820px;">
     <img class="col three" src="/assets/img/cumulative_dist_1000.png" alt="" title="Cumulative Distribution - 1000 players" />
 </div>
 
@@ -280,7 +276,7 @@
 <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <!-- Load Common JS -->
-<script src="http://localhost:4000/assets/js/common.js"></script>
+<script src="/assets/js/common.js"></script>
 
 
 <!-- Load KaTeX -->
@@ -290,14 +286,14 @@
 <!-- To automatically render math in text elements, include the auto-render extension: -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-<script src="http://localhost:4000/assets/js/katex.js"></script>
+<script src="/assets/js/katex.js"></script>
 
 
 
 
 <!-- Include custom icon fonts -->
-<link rel="stylesheet" href="http://localhost:4000/assets/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.min.css">
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
 
 <!-- Google Analytics -->
 <script>
