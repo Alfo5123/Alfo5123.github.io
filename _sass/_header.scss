@@ -4,8 +4,12 @@
   width: 100%;
   z-index: 60;
   border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--surface-rgb), 0.9),
+    rgba(243, 246, 241, 0.84)
+  );
+  backdrop-filter: blur(14px);
 }
 
 .site-header .wrapper {
@@ -58,7 +62,7 @@
     &:hover,
     &:focus-visible {
       color: var(--accent-strong);
-      background-color: rgba(15, 118, 110, 0.12);
+      background-color: rgba(15, 118, 110, 0.1);
       text-decoration: none;
     }
   }
@@ -75,7 +79,7 @@
       height: 40px;
       border: 1px solid var(--border);
       border-radius: 10px;
-      background: var(--surface);
+      background: linear-gradient(180deg, var(--surface-strong), var(--surface-soft));
       cursor: pointer;
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
     }
@@ -108,7 +112,7 @@
       padding: 0.5rem;
       border: 1px solid var(--border);
       border-radius: 12px;
-      background: var(--surface);
+      background: linear-gradient(180deg, var(--surface-strong), var(--surface-soft));
       box-shadow: var(--soft-shadow);
     }
 

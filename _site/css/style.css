@@ -30,6 +30,17 @@
 
 .item a:hover { text-decoration: none; }
 
-.item:hover { background-color: #fff; }
+.item:hover { background-color: #f7faf6; }
 
 @media screen and (max-width: 600px) { .item { min-width: calc(50% - 0.5rem); margin: 0; } }
+.quote-list { display: grid; margin-top: 1.5rem; gap: 1rem; }
+
+.quote-list > li { border-bottom: none; padding: 0; margin-bottom: 1rem; }
+
+.quote-card { margin: 0; padding: clamp(1.1rem, 3vw, 1.6rem) clamp(1rem, 3vw, 1.4rem); border: 1px solid rgba(15, 118, 110, 0.12); border-left: none; border-radius: 22px; background: linear-gradient(135deg, rgba(251, 252, 249, 0.97) 0%, rgba(245, 248, 245, 0.97) 50%, rgba(239, 244, 241, 0.98) 100%); box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05); }
+
+.quote-card__text { margin: 0; font-family: "IBM Plex Serif", "Iowan Old Style", "Palatino Linotype", serif; font-size: clamp(1.15rem, 2.8vw, 1.6rem); line-height: 1.6; }
+
+.quote-card footer { margin-top: 0.9rem; font-size: clamp(0.95rem, 2.2vw, 1.05rem); color: #50606a; }
+
+.quote-card footer::before { content: "\2014  "; }

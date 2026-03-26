@@ -1,5 +1,5 @@
 .post {
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--surface-strong), var(--surface-soft));
   border: 1px solid var(--border);
   border-radius: 18px;
   box-shadow: var(--soft-shadow);

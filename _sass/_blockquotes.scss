@@ -1,5 +1,5 @@
 blockquote {
-  border-left: 5px solid #7a7a7a;
+  border-left: 5px solid rgba(15, 118, 110, 0.34);
   font-style: italic;
   margin-left: $space-1;
   padding: $space-1;
@@ -11,9 +11,9 @@ blockquote2{
 }
 
 blockquote footer {
-  background-color: #fff;
+  background-color: transparent;
   border-color: transparent;
-  color: #7a7a7a;
+  color: var(--muted);
   font-size: .85rem;
   font-style: normal;
   text-align: left;
