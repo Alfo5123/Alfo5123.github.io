@@ -8,7 +8,6 @@ const copy = {
     dontKnow: "No sé",
     no: "No",
     resultLabel: "Perunator recomienda",
-    confidence: "Confianza",
     restart: "Empezar otra vez",
     loading: "Preparando la siguiente pregunta...",
     error: "No pude conectar con Perunator. Revisa que el backend este corriendo.",
@@ -21,7 +20,6 @@ const copy = {
     dontKnow: "Don't know",
     no: "No",
     resultLabel: "Perunator recommends",
-    confidence: "Confidence",
     restart: "Start again",
     loading: "Preparing the next question...",
     error: "Could not connect to Perunator. Check that the backend is running.",
@@ -55,7 +53,6 @@ const elements = {
   errorActions: document.querySelector("#errorActions"),
   result: document.querySelector("#result"),
   dishName: document.querySelector("#dishName"),
-  confidenceText: document.querySelector("#confidenceText"),
   restartButton: document.querySelector("#restartButton"),
   retryButton: document.querySelector("#retryButton"),
   progressBar: document.querySelector("#progressBar"),
@@ -180,8 +177,6 @@ function renderResult(result) {
   elements.questionText.textContent = "";
   elements.hintText.textContent = "";
   elements.dishName.textContent = best?.dish || "Perunator";
-  const confidence = Math.round((best?.confidence || 0) * 100);
-  elements.confidenceText.textContent = `${t("confidence")}: ${confidence}%`;
   elements.progressBar.style.width = "100%";
 }
 
