@@ -1,5 +1,5 @@
 const API_BASE = resolveApiBase();
-const MAX_QUESTIONS = 14;
+const MAX_QUESTIONS = 9;
 
 const copy = {
   es: {
