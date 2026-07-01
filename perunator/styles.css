@@ -277,10 +277,10 @@ h2 {
   width: min(620px, 100%);
   margin-top: 4px;
   padding: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.74);
+  border: 0;
   border-radius: 8px;
-  background: var(--panel);
-  box-shadow: 0 16px 38px rgba(64, 47, 70, 0.10);
+  background: transparent;
+  box-shadow: none;
 }
 
 .result-label {
