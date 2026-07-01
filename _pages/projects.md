@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: A growing collection of your previous and current projects.
+description: A growing collection of nerdy side quests.
 order: 4
 ---
 
@@ -27,4 +27,3 @@ order: 4
     </div>
 {% endfor %}
 </div>
-
