@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
+
+ruby ">= 3.0.0"
+
 group :jekyll_plugins do
-    gem 'github-pages'
-    gem 'jekyll'
-    gem 'jekyll-email-protect'
-    gem 'jekyll-paginate'
-    gem 'jemoji'
-    gem "kramdown", ">= 2.3.1"
-    gem 'unicode_utils'
-    gem "webrick", "~> 1.7"
+    gem "jekyll", "~> 4.4"
+    gem "jekyll-paginate", "~> 1.1"
+    gem "kramdown", "~> 2.5"
+    gem "webrick", "~> 1.9"
 end

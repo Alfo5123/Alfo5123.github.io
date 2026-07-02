@@ -98,8 +98,6 @@
         
           
         
-          
-        
 	-->
 
       </div>
@@ -225,11 +223,11 @@ The stabilizer of 𝑥
 
 <p class="text-justify">Furthermore, we could use a library for symbolic mathematics such as <a href="https://www.sympy.org/en/index.html">SymPy</a> to quickly verify our result. The library uses the <a href="https://en.wikipedia.org/wiki/Schreier%E2%80%93Sims_algorithm">Schreier–Sims algorithm</a> to compute the order of the generated group.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sympy.combinatorics</span> <span class="kn">import</span> <span class="n">Permutation</span><span class="p">,</span> <span class="n">PermutationGroup</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">Permutation</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]],</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Permutation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">PermutationGroup</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Group Order:'</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">order</span><span class="p">())</span> <span class="c1"># 12!</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="n">sympy.combinatorics</span> <span class="kn">import</span> <span class="n">Permutation</span><span class="p">,</span> <span class="n">PermutationGroup</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nc">Permutation</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]],</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nc">Permutation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">G</span> <span class="o">=</span> <span class="nc">PermutationGroup</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Group Order:</span><span class="sh">'</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="nf">order</span><span class="p">())</span> <span class="c1"># 12!</span></code></pre></figure>
 
 <p class="text-justify"><em>I wanted to take this opportunity to relate <a href="https://www.youtube.com/watch?v=px_4TxC2mXU">Feynman’s famous quote</a> on knowing the name of something. Despite I am nowhere near being a formerly trained mathematician, sometimes one can benefit by knowing the name of some obscure group theory concept in order to tackle a problem and appropriately explore previous research efforts on the field.</em></p>
 
@@ -241,14 +239,14 @@ The stabilizer of 𝑥
 
 <p class="text-justify">The only piece missing is the transition function to traverse each node. Since we want to keep the element \(1\) as fixed point in the tuple representation, we apply the transformations of the shape \([i\%n, (i+1)\%n, (i+2)\%n, (i+3)\%n ]\) for a valid \(i\) (\(0\leq i &lt; n\)), and the necessary rotations to keep the element \(1\) at the beginnning. Throughout this post, we denote this sequence of transformations as <strong>move(\(i\))</strong>.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="n">math</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="n">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="n">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 
 <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">ix</span><span class="p">):</span>
     <span class="c1"># Copy mutable state variable 
-</span>    <span class="n">new_state</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+</span>    <span class="n">new_state</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="nf">copy</span><span class="p">()</span>
 
     <span class="c1"># Swap the elements (ix%n, (ix+1)%n) and (ix+2)%n, (ix+3)%n)
 </span>    <span class="n">new_state</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">new_state</span><span class="p">[(</span><span class="n">ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
@@ -272,29 +270,29 @@ The stabilizer of 𝑥
 <p>We can now run our naive BFS implementation.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># Create a set for visited states 
-</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span class="n">visited</span> <span class="o">=</span> <span class="nf">set</span><span class="p">()</span>
 
 <span class="c1"># Keep track of parent states during traversal for path reconstruction
-</span><span class="n">parent</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">parent_idx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</span><span class="n">parent</span> <span class="o">=</span> <span class="nf">dict</span><span class="p">()</span>
+<span class="n">parent_idx</span> <span class="o">=</span> <span class="nf">dict</span><span class="p">()</span>
 
 <span class="c1"># Intialization of solution state
-</span><span class="n">solution_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-<span class="n">initial_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">solution_state</span><span class="p">)</span>
-<span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="n">initial_state</span><span class="p">])</span> 
+</span><span class="n">solution_state</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">initial_state</span> <span class="o">=</span> <span class="nf">tuple</span><span class="p">(</span><span class="n">solution_state</span><span class="p">)</span>
+<span class="n">visited</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="nf">deque</span><span class="p">([</span><span class="n">initial_state</span><span class="p">])</span> 
 <span class="n">parent</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_state</span>
 <span class="n">parent_idx</span><span class="p">[</span><span class="n">initial_state</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
 <span class="c1"># Explore immediate neighbors not visited
 </span><span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-  <span class="n">current_state</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">())</span>
-  <span class="n">current_state_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">next_state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">move</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+  <span class="n">current_state</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="nf">popleft</span><span class="p">())</span>
+  <span class="n">current_state_tuple</span> <span class="o">=</span> <span class="nf">tuple</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">next_state</span> <span class="o">=</span> <span class="nf">tuple</span><span class="p">(</span><span class="nf">move</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">next_state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
-      <span class="n">visited</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
-      <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
+      <span class="n">visited</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
+      <span class="n">queue</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
       <span class="n">parent</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_state_tuple</span>
       <span class="n">parent_idx</span><span class="p">[</span><span class="n">next_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span></code></pre></figure>
 
@@ -337,7 +335,9 @@ $$(1, 3, 5, 7, 2, 4, 6, 8, 9, 10, 11, 12)$$.
       </div>
     </div>
 
-<!-- Load jQuery -->
+    
+
+    <!-- Load jQuery -->
 <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <!-- Load Common JS -->

@@ -82,9 +82,7 @@ include: ['_pages']
 
 # Gems
 plugins:
-    - jekyll-email-protect
     - jekyll-paginate
-    - jemoji
 
 
 # -----------------------------------------------------------------------------
