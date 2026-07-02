@@ -91,10 +91,10 @@ h2 {
   align-content: center;
   gap: 8px;
   padding: 20px 22px;
-  border: 0;
+  border: 0 !important;
   border-radius: 8px;
-  background: transparent;
-  box-shadow: none;
+  background: transparent !important;
+  box-shadow: none !important;
   overflow: hidden;
   text-align: center;
 }
@@ -276,10 +276,11 @@ h2 {
 .result {
   width: min(620px, 100%);
   margin-top: 4px;
-  padding: 18px;
-  border: 0 !important;
-  border-radius: 8px;
-  background: transparent !important;
+  padding: 0;
+  border: none !important;
+  border-radius: 0;
+  outline: none !important;
+  background: none !important;
   box-shadow: none !important;
 }
 
@@ -440,7 +441,7 @@ h2 {
   }
 
   .result {
-    padding: 14px;
+    padding: 0;
   }
 
   .result-label {
@@ -500,7 +501,7 @@ h2 {
   }
 
   .result {
-    padding: 14px;
+    padding: 0;
   }
 
   .result-label {
