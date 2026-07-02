@@ -2,6 +2,7 @@
 layout: post
 quote: 'If you optimize everything, you will always be unhappy.'
 date: 2018-02-04 21:01:00
+permalink: /articles/2018/02/04/quote/
 author: Donald Knuth
 categories: idea
 tags: quotes

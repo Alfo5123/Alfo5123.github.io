@@ -2,6 +2,7 @@
 layout: post
 quote: "Uno se convierte en anciano el día en que ha olvidado sus bendiciones pasadas."
 date: 2024-01-20 18:01:00
+permalink: /articles/2024/01/20/quote/
 author: Epicuro
 categories: idea
 tags: quotes

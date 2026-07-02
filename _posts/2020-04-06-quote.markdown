@@ -2,6 +2,7 @@
 layout: post
 quote: "The road to wisdom? — Well, it's plain and simple to express: Err and err and err again but less and less and less."
 date: 2020-04-06 18:01:00
+permalink: /articles/2020/04/06/quote/
 author: Piet Hein
 categories: idea
 tags: quotes

@@ -2,6 +2,7 @@
 layout: post
 quote: "Being wrong is the only way I feel sure I've learned something. "
 date: 2025-11-30 11:01:00
+permalink: /articles/2025/11/30/quote/
 author: Daniel Kahneman
 categories: idea
 tags: quotes
