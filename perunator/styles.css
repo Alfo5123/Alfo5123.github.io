@@ -154,6 +154,43 @@ h2 {
   user-select: none;
   -webkit-user-drag: none;
   filter: drop-shadow(0 12px 22px rgba(75, 55, 79, 0.05));
+  transition:
+    opacity 520ms ease,
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 520ms ease;
+}
+
+.dish-image {
+  position: absolute;
+  z-index: 2;
+  width: 104%;
+  height: 104%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.72) rotate(-2deg);
+  filter: blur(10px) saturate(1.05) drop-shadow(0 18px 26px rgba(75, 55, 79, 0.08));
+  pointer-events: none;
+  transition:
+    opacity 620ms ease,
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 620ms ease;
+}
+
+.stage.result-ready .mascot {
+  opacity: 0;
+  transform: scale(0.76) rotate(4deg);
+  filter: blur(8px) drop-shadow(0 10px 20px rgba(75, 55, 79, 0));
+}
+
+.stage.result-ready .dish-image {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  filter: blur(0) saturate(1.02) drop-shadow(0 18px 26px rgba(75, 55, 79, 0.08));
+}
+
+.stage.result-ready .spark {
+  z-index: 3;
+  animation: resultSpark 900ms ease both;
 }
 
 .spark {
@@ -406,11 +443,30 @@ h2 {
   }
 }
 
+@keyframes resultSpark {
+  0% {
+    opacity: 0.45;
+    transform: scale(0.76) rotate(0deg);
+  }
+
+  42% {
+    opacity: 1;
+    transform: scale(1.32) rotate(10deg);
+  }
+
+  100% {
+    opacity: 0.62;
+    transform: scale(0.92) rotate(0deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mascot-wrap,
   .spark,
   .answer,
-  .restart {
+  .restart,
+  .mascot,
+  .dish-image {
     animation: none;
     transition: none;
   }

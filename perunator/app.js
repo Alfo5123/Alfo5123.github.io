@@ -53,6 +53,8 @@ const elements = {
   answerActions: document.querySelector("#answerActions"),
   answerButtons: document.querySelectorAll(".answer"),
   errorActions: document.querySelector("#errorActions"),
+  stage: document.querySelector(".stage"),
+  dishImage: document.querySelector("#dishImage"),
   result: document.querySelector("#result"),
   dishName: document.querySelector("#dishName"),
   restartButton: document.querySelector("#restartButton"),
@@ -155,9 +157,43 @@ function setRestartButton() {
   elements.restartButton.title = t("restart");
 }
 
+function slugifyDishName(name) {
+  return String(name || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function resetDishImage() {
+  elements.stage.classList.remove("result-ready");
+  elements.stage.setAttribute("aria-label", "Animated Papa Mood Bot mascot");
+  elements.dishImage.removeAttribute("src");
+  elements.dishImage.alt = "";
+  elements.dishImage.setAttribute("aria-hidden", "true");
+}
+
+function showDishImage(dishName) {
+  const slug = slugifyDishName(dishName);
+  if (!slug) {
+    resetDishImage();
+    return;
+  }
+
+  elements.dishImage.src = `./assets/dishes/${slug}.png`;
+  elements.dishImage.alt = dishName;
+  elements.dishImage.removeAttribute("aria-hidden");
+  elements.stage.setAttribute("aria-label", `${dishName} recommendation illustration`);
+  window.requestAnimationFrame(() => {
+    elements.stage.classList.add("result-ready");
+  });
+}
+
 function renderQuestion(question) {
   state.question = question;
   state.questionCount += 1;
+  resetDishImage();
   elements.result.classList.add("hidden");
   elements.errorActions.classList.add("hidden");
   elements.answerActions.classList.remove("hidden");
@@ -172,13 +208,15 @@ function renderQuestion(question) {
 
 function renderResult(result) {
   const best = result?.recommendations?.[0] || result;
+  const dishName = best?.dish || "Perunator";
   elements.answerActions.classList.add("hidden");
   elements.errorActions.classList.add("hidden");
   elements.result.classList.remove("hidden");
   setStatusText("");
   elements.questionText.textContent = "";
   elements.hintText.textContent = "";
-  elements.dishName.textContent = best?.dish || "Perunator";
+  elements.dishName.textContent = dishName;
+  showDishImage(dishName);
   elements.progressBar.style.width = "100%";
 }
 
@@ -188,6 +226,7 @@ function renderError(error) {
   elements.questionText.textContent = t("error");
   elements.hintText.textContent = `${t("backendHint")}: ${API_BASE}`;
   elements.answerActions.classList.add("hidden");
+  resetDishImage();
   elements.result.classList.add("hidden");
   elements.errorActions.classList.remove("hidden");
   elements.progressBar.style.width = "0%";
@@ -214,6 +253,7 @@ async function startSession() {
   setStatusText("");
   elements.questionText.textContent = t("loading");
   elements.hintText.textContent = "";
+  resetDishImage();
   elements.result.classList.add("hidden");
   elements.errorActions.classList.add("hidden");
   elements.answerActions.classList.add("hidden");
@@ -266,6 +306,12 @@ elements.answerButtons.forEach((button) => {
 
 elements.restartButton.addEventListener("click", startSession);
 elements.retryButton.addEventListener("click", startSession);
+elements.dishImage.addEventListener("error", resetDishImage);
 
 applyLanguage();
-startSession();
+const previewDish = new URLSearchParams(window.location.search).get("previewDish");
+if (previewDish) {
+  renderResult({ recommendations: [{ dish: previewDish }] });
+} else {
+  startSession();
+}
