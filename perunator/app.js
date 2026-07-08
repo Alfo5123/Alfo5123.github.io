@@ -1,5 +1,4 @@
 const API_BASE = resolveApiBase();
-const MAX_QUESTIONS = 9;
 
 const copy = {
   es: {
@@ -59,7 +58,6 @@ const elements = {
   dishName: document.querySelector("#dishName"),
   restartButton: document.querySelector("#restartButton"),
   retryButton: document.querySelector("#retryButton"),
-  progressBar: document.querySelector("#progressBar"),
 };
 
 function resolveApiBase() {
@@ -200,10 +198,6 @@ function renderQuestion(question) {
   setStatusText("");
   elements.questionText.textContent = question.text;
   elements.hintText.textContent = t("hint");
-  elements.progressBar.style.width = `${Math.min(
-    (state.questionCount / MAX_QUESTIONS) * 100,
-    100,
-  )}%`;
 }
 
 function renderResult(result) {
@@ -217,7 +211,6 @@ function renderResult(result) {
   elements.hintText.textContent = "";
   elements.dishName.textContent = dishName;
   showDishImage(dishName);
-  elements.progressBar.style.width = "100%";
 }
 
 function renderError(error) {
@@ -229,7 +222,6 @@ function renderError(error) {
   resetDishImage();
   elements.result.classList.add("hidden");
   elements.errorActions.classList.remove("hidden");
-  elements.progressBar.style.width = "0%";
 }
 
 async function postJson(path, payload) {
@@ -249,7 +241,6 @@ async function startSession() {
   state.sessionId = null;
   state.question = null;
   state.questionCount = 0;
-  elements.progressBar.style.width = "0%";
   setStatusText("");
   elements.questionText.textContent = t("loading");
   elements.hintText.textContent = "";

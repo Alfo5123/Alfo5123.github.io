@@ -76,20 +76,11 @@ h2 {
   letter-spacing: 0;
 }
 
-.progress {
+.divider {
   width: min(520px, 100%);
   height: 7px;
   border-radius: 999px;
-  background: #f1eef3;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px rgba(32, 24, 38, 0.04);
-}
-
-.progress-bar {
-  width: 0%;
-  height: 100%;
   background: #111111;
-  transition: width 260ms ease;
 }
 
 .question-card {
