@@ -189,8 +189,9 @@ h2 {
 }
 
 .stage.result-ready .spark {
-  z-index: 3;
-  animation: resultSpark 900ms ease both;
+  opacity: 0;
+  visibility: hidden;
+  animation: none;
 }
 
 .spark {
