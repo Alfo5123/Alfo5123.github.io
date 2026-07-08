@@ -3,7 +3,7 @@ const MAX_QUESTIONS = 9;
 
 const copy = {
   es: {
-    tagline: "Responde según tu antojo y descubre qué plato peruano va contigo.",
+    tagline: "Responde y descubre tu antojo peruano.",
     hint: "",
     yes: "Si",
     dontKnow: "No sé",
@@ -16,7 +16,7 @@ const copy = {
     backendHint: "Backend",
   },
   en: {
-    tagline: "Answer with your cravings to find the Peruvian dish for your mood.",
+    tagline: "Answer and discover your Peruvian craving.",
     hint: "",
     yes: "Yes",
     dontKnow: "Don't know",
